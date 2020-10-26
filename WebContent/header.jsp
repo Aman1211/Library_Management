@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
     <div class="container">
      <a class="navbar-brand" href="#">
-          <img src="images/header.jpeg" height="50" width="100" style="margin-right:5px; border-radius:10px"   alt="">
+          <img src="images/booklogo.jpg" height="50" width="100" style="margin-right:5px; border-radius:10px"   alt="">
         </a>
         <a class="navbar-brand" href="<%= application.getContextPath() %>/Controller?action=viewindex">Library Management System</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
