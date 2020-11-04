@@ -1,4 +1,5 @@
 package library.controller.action;
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import library.model.UserBean;
@@ -39,7 +40,16 @@ public class ActionLoginValidate implements Action{
 			 }
 			 else
 			 {request.getSession().setAttribute("user",user.getUsername());
+			   request.getSession().setAttribute("name", user.getName());
+			   request.getSession().setAttribute("role", user.getRole());
+			   if(user.getRole().equalsIgnoreCase("Admin"))
+			   {
+				 view="admin.jsp";
+			   }
+			   else
+			   {
 				 view="index.jsp";
+			   }
 			 }
 			 
 			

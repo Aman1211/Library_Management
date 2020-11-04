@@ -20,14 +20,14 @@ public class User implements Cloneable {
 	private String Role;
 	
 	
-	public User(String name,String user,String pass,long con,String type)
+	public User(String name,String user,String pass,long con,String type,String role)
 	{
 		Name=name;
 		UserName=user;
 		Password=pass;
 		Contact=con;
 	    Type=type;
-	    Role="Member";
+	    Role=role;
 	    
 	}
 	public User()
