@@ -4,7 +4,7 @@
      <a class="navbar-brand" href="#">
           <img src="images/booklogo.jpg" height="50" width="100" style="margin-right:5px; border-radius:10px"   alt="">
         </a>
-        <% if(session.getAttribute("role").equals("Member")){ %>
+        <% if(session.getAttribute("role")==null || session.getAttribute("role").equals("Member")){ %>
         <a class="navbar-brand" href="<%= application.getContextPath() %>/Controller?action=viewindex">Library Management System</a>
         <%}else { %>
          <a class="navbar-brand" href="<%= application.getContextPath() %>/Controller?action=viewadmin">Library Management System</a>
