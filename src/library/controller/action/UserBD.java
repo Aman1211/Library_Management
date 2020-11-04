@@ -29,12 +29,12 @@ public class UserBD {
 	}
 		private static UserBean TO2Bean(UserTO bkt) {
 			UserBean user = new UserBean(bkt.getName(), bkt.getUsername(), 
-					bkt.getPassword(), bkt.getContact(),bkt.getType());
+					bkt.getPassword(), bkt.getContact(),bkt.getType(),bkt.getRole());
 			return user;
 		}
 
 		private static UserTO Bean2TO(UserBean bk) {
-			UserTO user = new UserTO(bk.getName(),bk.getUsername(),bk.getPassword(),bk.getContact(),bk.getType());
+			UserTO user = new UserTO(bk.getName(),bk.getUsername(),bk.getPassword(),bk.getContact(),bk.getType(),bk.getRole());
 			return user;
 		}	
 		private static UserService service = UserService.getInstance();	

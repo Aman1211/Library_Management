@@ -7,8 +7,8 @@ public class UserTO {
 	  public UserTO() {
 	    	user = new User();
 	    }
-	    public UserTO(String name,String username,String password,long contact,String type) {
-	    	user = new User(name,username,password,contact,type);
+	    public UserTO(String name,String username,String password,long contact,String type,String role) {
+	    	user = new User(name,username,password,contact,type,role);
 	    }
 	    
 	    public String getUsername() {
@@ -62,6 +62,10 @@ public class UserTO {
 	    	return user.getRole();
 	    }
 	    
+	    public void setRole(String role)
+	    {
+	    	user.setRole(role);
+	    }
 	    
 	    
 	    @Override

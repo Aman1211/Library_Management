@@ -36,7 +36,7 @@ public class Userdao{
 		ub.setContact(rs.getLong("Contact"));
 		ub.setType(rs.getString("Type"));
 		ub.setName(rs.getString("Name"));
-		
+		ub.setRole(rs.getString("Role"));
 		con.close();
 	}catch(Exception e)
 	{ 

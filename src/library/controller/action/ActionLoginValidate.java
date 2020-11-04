@@ -41,7 +41,15 @@ public class ActionLoginValidate implements Action{
 			 else
 			 {request.getSession().setAttribute("user",user.getUsername());
 			   request.getSession().setAttribute("name", user.getName());
+			   request.getSession().setAttribute("role", user.getRole());
+			   if(user.getRole().equalsIgnoreCase("Admin"))
+			   {
+				 view="admin.jsp";
+			   }
+			   else
+			   {
 				 view="index.jsp";
+			   }
 			 }
 			 
 			

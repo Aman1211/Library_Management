@@ -54,7 +54,7 @@ public class ActionRegisterValidate implements Action{
 	            view="register.jsp";
 	        }
 	   
-	     UserBean ub=new UserBean(name,username,password,contact,type);
+	     UserBean ub=new UserBean(name,username,password,contact,type,"Member");
 	     boolean res=UserBD.addUser(ub);
 	     System.out.print(res + "aman");
 	     if(res==false)

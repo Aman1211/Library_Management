@@ -17,23 +17,26 @@ public class UserBean
 	private String Role;
 	
 	
-	public UserBean(String name,String user,String pass,long con,String type)
+	public UserBean(String name,String user,String pass,long con,String type,String role)
 	{
 		Name=name;
 		UserName=user;
 		Password=pass;
 		Contact=con;
 	    Type=type;
-	    Role="Member";
+	    Role=role;
 	    
 	}
 	public UserBean()
 	{}
 	
+	
+	
 	public String getName()
 	{
 		return Name;
 	}
+	
 	
 	public void setName(String name)
 	{

@@ -26,10 +26,7 @@
 <body>
  <%@ include file="header.jsp" %> 
 <%
-if(session.getAttribute("user")!=null)
-{
-	 response.sendRedirect("index.jsp");
-}
+
 ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
 %>
   <main class="login-form">
