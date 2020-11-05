@@ -65,9 +65,13 @@ select {
 </div>
 
  <div class="row">
- <% if(bb==null){
-	 out.println("<tr><td colspan=\"4\">No Items Found</td></tr>");
- }
+ 
+ <%
+ 
+ if(bb==null){
+	 %>
+	 <h3 style="margin-left:45%" >No Item Found</h3>
+ <% }
  else
  {
 	for(BookBean b:bb){  
