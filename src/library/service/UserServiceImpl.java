@@ -92,7 +92,7 @@ public class UserServiceImpl extends UserService{
 	    }
 	    return true;
 	}
-	
+
 	public boolean forgot(UserTO user)
 	{
 		String username=user.getUsername();

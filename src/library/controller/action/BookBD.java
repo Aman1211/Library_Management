@@ -20,6 +20,18 @@ public class BookBD {
 		}
 		return books;
 	}
+	static void deleteBook(String isbn) {
+		
+		service.deleteBook(isbn); 
+		
+	}
+static BookBean getBook(String isbn) {
+		
+	return TO2Bean(service.getBook(isbn)); 
+		
+	}
+	
+
 	private static BookBean TO2Bean(BookTO bkt) {
 		BookBean book = new BookBean(bkt.getISBN(), bkt.getTitle(), 
 				bkt.getAuthor(), bkt.getCategory(),bkt.getQty(),bkt.getImage(),bkt.getRack());

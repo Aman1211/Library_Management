@@ -14,5 +14,15 @@ public class BookServiceImpl extends BookService {
 	   bt=bookdo.fetchAll();
 	   return bt;
    }
+	 public void deleteBook(String isbn) {
+		 
+		 bookdo.deleteBook(isbn);
+	    }
+	 public BookTO getBook(String isbn) {
+		 
+		 return bookdo.getBook(isbn);
+	    }
+	 
+	 
 private Bookdao bookdo=new Bookdao();
 }
