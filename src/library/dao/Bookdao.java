@@ -79,6 +79,60 @@ public class Bookdao {
 }
 	return bt;
      }
+ public void deleteBook(String isbn)
+	{
+	 System.out.println("step4");
+		try {
+		  Connection con=DBConnection.createConnection();
+		
+		  PreparedStatement ps=con.prepareStatement("delete from book where ISBN = ?");
+		  ps.setString(1,isbn);
+		 
+		  int i=ps.executeUpdate();
+		  //boolean i=ps.execute();
+		  System.out.println(i+" book deleted");  
+		    
+		  con.close();  
+		}catch(Exception e)
+		{
+			
+		}
+		}
+ public BookTO getBook(String isbn)
+	{
+
+	 BookTO bto=new BookTO();	 
+	 try {
+
+		 Connection con=DBConnection.createConnection();
+			PreparedStatement ps=con.prepareStatement(  
+			    "select * from book where ISBN = ?");  
+			ps.setString(1,isbn);  
+
+			ResultSet rs=ps.executeQuery();  
+			while(rs.next())
+			{					
+				bto.setISBN(rs.getString("ISBN"));
+			
+				bto.setTitle(rs.getString("Title"));
+				bto.setAuthor(rs.getString("Author"));
+				bto.setCategory(rs.getString("Category"));
+				bto.setQty(rs.getInt("Qty"));
+				bto.setImage(rs.getString("Image"));
+				bto.setRack(rs.getInt("Rackno"));
+			
+			}
+
+			con.close();
+		}catch(Exception e)
+		{ 
+			
+		}
+			return bto; 
+	}
+ 
+	
+ 
    
  
  public BookTO Exists(String isbn)

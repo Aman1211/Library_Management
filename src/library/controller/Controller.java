@@ -31,7 +31,7 @@ public class Controller extends HttpServlet {
         String theAction = request.getParameter("action");
         System.out.println("action "+theAction);
         if ( theAction == null)
-            theAction = "index";
+            theAction = "viewindex";
         
         Action action = getActionFromConfig( theAction );
 
