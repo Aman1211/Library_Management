@@ -3,6 +3,11 @@ import library.service.*;
 import library.model.BookBean;
 import library.model.UserBean;
 import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 public class BookBD {
 	static ArrayList<BookBean> Search(String keyword)  {
 	    return  Cast2Bean(service.Search(keyword)) ;     
@@ -11,6 +16,11 @@ public class BookBD {
 	static ArrayList<BookBean> fetchAll()
 	{
 		return Cast2Bean(service.fetchAll());
+	}
+	
+	static boolean addBook(BookBean bb,HttpServletResponse response,HttpServletRequest request, Part img) {
+		BookTO bt=Bean2TO(bb);
+		return service.addBook(bt,response,request,img);
 	}
 	
 	private static ArrayList<BookBean> Cast2Bean(ArrayList<BookTO> bookst) {
