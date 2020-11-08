@@ -28,7 +28,7 @@ public class BookServiceImpl extends BookService {
 	   bt=bookdo.fetchAll();
 	   return bt;
    }
-<<<<<<< HEAD
+
    
    public boolean addBook(BookTO bt,HttpServletResponse res,HttpServletRequest req,Part img)
    {
@@ -72,7 +72,6 @@ public class BookServiceImpl extends BookService {
 	    return true;
 	}
    
-=======
 	 public void deleteBook(String isbn) {
 		 
 		 bookdo.deleteBook(isbn);
@@ -83,6 +82,6 @@ public class BookServiceImpl extends BookService {
 	    }
 	 
 	 
->>>>>>> 883e9228942b4e63cfd8bd59e43927d5d595c023
+
 private Bookdao bookdo=new Bookdao();
 }

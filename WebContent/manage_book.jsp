@@ -1,36 +1,13 @@
-<<<<<<< HEAD
+
 <%@ include file="adminhead.jsp" %> 
       <div class="container-fluid">
+      <% ArrayList<BookBean>bb=new ArrayList<>();
+   bb=(ArrayList<BookBean>)session.getAttribute("Itemlist");
+ 	%>
        Manage all books here
         <a href="<%=application.getContextPath()%>/Controller?action=addbook"> Add New Book </a>
-      </div>
- <%@ include file="adminfoot.jsp"%>
-=======
-
-<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList"%>
-<!DOCTYPE html>
-<html>
-<head>
-<script src="//code.jquery.com/jquery-3.5.1.js"></script>
-<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-
-<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-<link href="//cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" id="bootstrap-css">
-<script>
-$(document).ready(function() {
-    $('#example').DataTable();
-} );</script>
-</head>
-
-<body>
- <% ArrayList<BookBean>bb=new ArrayList<>();
-   bb=(ArrayList<BookBean>)session.getAttribute("Itemlist");
- %>
- <%@ include file="adminhead.jsp" %>  
-       <div class="container">
-        
-  <table id="example" class="table table-striped table-bordered" style="width:100%">
+      
+      <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
       <tr>
       <th>Title</th>
@@ -69,8 +46,8 @@ $(document).ready(function() {
        <% }} %>
     </tbody>
   </table>
-</div>
- <%@ include file="adminfoot.jsp" %>  
-    </body>
-</html>
->>>>>>> 883e9228942b4e63cfd8bd59e43927d5d595c023
+      
+      
+      </div>
+ <%@ include file="adminfoot.jsp"%>
+
