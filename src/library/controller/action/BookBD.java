@@ -1,7 +1,6 @@
 package library.controller.action;
 import library.service.*;
 import library.model.BookBean;
-import library.model.UserBean;
 import java.util.ArrayList;
 public class BookBD {
 	static ArrayList<BookBean> Search(String keyword)  {

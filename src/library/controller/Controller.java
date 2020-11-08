@@ -1,5 +1,5 @@
 package library.controller;
-
+import javax.servlet.annotation.MultipartConfig;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -16,6 +16,7 @@ import library.util.Util;
 /**
  * Servlet implementation class Controller
  */
+@MultipartConfig
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -31,7 +32,7 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String theAction = request.getParameter("action");
+        String theAction = (String)request.getParameter("action");
 
         if ( theAction == null)
             theAction = "viewindex";

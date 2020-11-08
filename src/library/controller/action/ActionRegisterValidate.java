@@ -53,7 +53,19 @@ public class ActionRegisterValidate implements Action{
 	            request.setAttribute("errMessage",err);
 	            view="register.jsp";
 	        }
-	   
+	        String regex = "^(?=.*[0-9])"
+                    + "(?=.*[a-z])(?=.*[A-Z])"
+                    + "(?=.*[@#$%^&+=])"
+                    + "(?=\\S+$).{8,20}$"; 
+          Pattern p = Pattern.compile(regex);
+          Matcher m = p.matcher(password);
+           if(m.matches()==false)
+           {
+           	 err.add("Password length must be 8 of characters and must  contain UpperCase,LowerCase,digit and Special Character !");
+   			 request.setAttribute("errMessage", err); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+               
+   			 return "register.jsp";
+           }
 	     UserBean ub=new UserBean(name,username,password,contact,type,"Member");
 	     boolean res=UserBD.addUser(ub);
 	     System.out.print(res + "aman");

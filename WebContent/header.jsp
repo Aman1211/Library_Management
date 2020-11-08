@@ -16,6 +16,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="margin-top:25px">
                 <%  if(session.getAttribute("user")!=null){ %>
+                <% if(session.getAttribute("role").equals("Member")){ %>
+                 <li class="nav-item">
+                    <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=requestlist">Request Book</a><br>
+                    
+                </li>
+                <%} %>
                  <li class="nav-item">
                     <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=logout">Logout</a><br>
                     
