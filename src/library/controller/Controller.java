@@ -12,10 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import library.controller.Action;
 import library.util.Util;
+<<<<<<< HEAD
 
 /**
  * Servlet implementation class Controller
  */
+=======
+>>>>>>> 433d8d5402a30fa41117fb6d42d8ac6209be4721
 @MultipartConfig
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
@@ -32,8 +35,13 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+<<<<<<< HEAD
         String theAction = (String)request.getParameter("action");
 
+=======
+        String theAction = request.getParameter("action");
+        System.out.println("action "+theAction);
+>>>>>>> 433d8d5402a30fa41117fb6d42d8ac6209be4721
         if ( theAction == null)
             theAction = "viewindex";
         
