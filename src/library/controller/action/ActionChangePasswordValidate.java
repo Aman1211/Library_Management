@@ -57,7 +57,7 @@ public class ActionChangePasswordValidate implements Action{
 	           if(m.matches()==false)
 	           {
 	           	 err.add("Password length must be 8 of characters and must  contain UpperCase,LowerCase,digit and Special Character !");
-	   			 request.setAttribute("errMessage", err); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+	   			 request.setAttribute("errMessage1", err); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
 	               
 	   			 return "change_password.jsp";
 	           }
