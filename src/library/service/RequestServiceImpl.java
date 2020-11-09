@@ -48,7 +48,6 @@ public class RequestServiceImpl extends RequestService{
 	{
 	
 	    RequestTO rto=rdao.getRequest(id);
-	    System.out.println(rto.getUsername()+ "user");
 	    Properties props = new Properties();  
         
         props.put("mail.smtp.host", "smtp.gmail.com");    

@@ -1,13 +1,15 @@
 
 package library.controller.action;
 import java.util.ArrayList;
-
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import library.model.UserBean;
 import library.service.UserService;
 import library.controller.action.ActionError;
 import library.controller.Action;
+
 
 public class ActionChangePasswordValidate implements Action{
 
@@ -46,6 +48,19 @@ public class ActionChangePasswordValidate implements Action{
 	     }
 		 else 
 		 {
+			 String regex = "^(?=.*[0-9])"
+	                    + "(?=.*[a-z])(?=.*[A-Z])"
+	                    + "(?=.*[@#$%^&+=])"
+	                    + "(?=\\S+$).{8,20}$"; 
+	          Pattern p = Pattern.compile(regex);
+	          Matcher m = p.matcher(password);
+	           if(m.matches()==false)
+	           {
+	           	 err.add("Password length must be 8 of characters and must  contain UpperCase,LowerCase,digit and Special Character !");
+	   			 request.setAttribute("errMessage", err); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
+	               
+	   			 return "change_password.jsp";
+	           }
 			 UserBean user=new UserBean();
 			 user.setUsername(username);
 			 user.setPassword(password);

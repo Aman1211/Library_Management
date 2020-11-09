@@ -81,6 +81,34 @@ public class BookServiceImpl extends BookService {
 		 return bookdo.getBook(isbn);
 	    }
 	 
+	 public void editBook(BookTO bt)
+	 {
+		 bookdo.updateBook(bt);
+	 }
+	 public void editBook(BookTO bt,HttpServletResponse res,HttpServletRequest req,Part img)
+	 {
+		 String SAVE_DIR="\\WebContent\\images";
+	    	String appPath = req.getServletContext().getRealPath("/");
+	    	String[] path = appPath.split("\\.metadata");
+	    	appPath = path[0];
+	    	String projectname[] = path[1].split("\\wtpwebapps");
+	    	projectname[1] = projectname[1].substring(1,projectname[1].length()-1);
+	    	SAVE_DIR = projectname[1]+SAVE_DIR;
+	    	String savePath = appPath + SAVE_DIR;
+	    	
+	    	String photo = "images/"+bt.getImage();
+	    	System.out.println(savePath);
+	    	System.out.println(savePath + File.separator + bt.getImage());
+	    	File file = new File(savePath);
+	    	try {
+	    		img.write(savePath + File.separator + bt.getImage());
+	    	}
+	    	catch(Exception e) {}
+	    	bt.setImage(photo);
+	    	bookdo.updateBook1(bt);
+	    
+	 }
+	 
 	 
 
 private Bookdao bookdo=new Bookdao();

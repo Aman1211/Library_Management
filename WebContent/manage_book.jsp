@@ -4,8 +4,9 @@
       <% ArrayList<BookBean>bb=new ArrayList<>();
    bb=(ArrayList<BookBean>)session.getAttribute("Itemlist");
  	%>
-       Manage all books here
-        <a href="<%=application.getContextPath()%>/Controller?action=addbook"> Add New Book </a>
+      <h3 style="margin-left:45%" >Manage Book</h3>
+  <hr>
+        <a style="margin-bottom:5px" class="btn btn-primary" href="<%=application.getContextPath()%>/Controller?action=addbook"> Add New Book </a>
       
       <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
@@ -38,9 +39,9 @@
         <td><%=b.getCategory() %></td>
         <td><%=b.getQty() %></td>
         <td><%=b.getRack() %></td>
-        <td><img src=<%= b.getImage() %> height="100px" alt="..."></td>
-        <td><a href="<%= application.getContextPath() %>/Controller?action=editbook&isbn=<%= isbn %>">Edit</a></td>
-        <td><a href="<%= application.getContextPath() %>/Controller?action=deletebookvalidate&isbn=<%= isbn %>">Delete Book</a></td>
+        <td><a class="btn btn-primary" href="<%=b.getImage()%>" target="_blank">Show Image</a></td>
+        <td><a class="btn btn-primary" href="<%= application.getContextPath() %>/Controller?action=editbook&isbn=<%= isbn %>">Edit</a></td>
+        <td><a class="btn btn-primary" href="<%= application.getContextPath() %>/Controller?action=deletebookvalidate&isbn=<%= isbn %>">Delete Book</a></td>
        
       </tr>
        <% }} %>

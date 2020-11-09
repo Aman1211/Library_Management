@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-<%@page contentType="text/html" pageEncoding="UTF-8" import="library.model.RequestBean,library.model.BookBean,java.util.ArrayList"%>
-=======
-<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList"%>
->>>>>>> 433d8d5402a30fa41117fb6d42d8ac6209be4721
+
+
+<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.RequestBean"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,11 +30,9 @@
 	    $('#example').DataTable();
 	} );
  </script>
-<<<<<<< HEAD
+
 </head>
-=======
-   </head>
->>>>>>> 433d8d5402a30fa41117fb6d42d8ac6209be4721
+
  <% 
         if(session.getAttribute("user")==null)
         {

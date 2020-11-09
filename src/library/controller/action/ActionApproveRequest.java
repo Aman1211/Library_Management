@@ -9,7 +9,7 @@ public class ActionApproveRequest implements Action {
 	public String perform(HttpServletRequest req,HttpServletResponse res)
 	{
 		int id=Integer.parseInt(req.getParameter("id"));
-		System.out.println(id + "rsa");
+		
 		RequestBD.approveRequest(id);
 		return "/Controller?action=adminrequest";
 	}

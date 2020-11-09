@@ -31,7 +31,7 @@ public class ActionAddBookValidate implements Action{
 	    }
 	    catch(Exception e)
 	    {}
-	     System.out.print(isbn+title+aname+qty+category+rno);
+	    
 	     if(isbn.isEmpty() || title.isEmpty() || aname.isEmpty() || qty.isEmpty()  || category.isEmpty() || rno.isEmpty() )
 	     {
 	    	 System.out.print("empty");

@@ -1,34 +1,9 @@
-   <%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.ArrayList" %> 
-<!DOCTYPE html>
-
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>add book</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta charset="ISO-8859-1">
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="icon" href="Favicon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-</head>
-<body>
- <%@ include file="header.jsp" %> 
-<%
-
-ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
+  <%@ include file="adminhead.jsp" %> 
+      <div class="container-fluid">
+  <% ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
 %>
+ <h3 style="margin-left:45%" >Add Book</h3>
+  <hr>
   <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
@@ -118,6 +93,11 @@ ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
                                          
        </div>
    </form>
- 
-</body>
-</html>
+   </div>
+   </div>
+   </div>
+   </div>
+   </div>
+   </main>
+   </div>
+ <%@ include file="adminfoot.jsp"%>

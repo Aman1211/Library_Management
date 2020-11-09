@@ -22,6 +22,18 @@ public class BookBD {
 		return service.addBook(bt,response,request,img);
 	}
 	
+	static void editBook(BookBean bb)
+	{
+		BookTO bt=Bean2TO(bb);
+	    service.editBook(bt);
+	}
+	
+	static void editBook(BookBean bb,HttpServletResponse response,HttpServletRequest request, Part img)
+	{
+		BookTO bt=Bean2TO(bb);
+		service.editBook(bt,response,request,img);
+	}
+	
 	private static ArrayList<BookBean> Cast2Bean(ArrayList<BookTO> bookst) {
 		ArrayList<BookBean> books = new ArrayList<>();
 		for(BookTO bkt : bookst) {
