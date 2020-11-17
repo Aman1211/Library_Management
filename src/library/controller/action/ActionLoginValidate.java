@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import library.model.UserBean;
 import library.service.UserService;
 import library.controller.action.ActionError;
+import java.util.regex.*; 
 
 import library.controller.Action;
 public class ActionLoginValidate implements Action{
@@ -22,10 +23,10 @@ public class ActionLoginValidate implements Action{
 			 request.setAttribute("errMessage", userValidate); //If authenticateUser() function returnsother than SUCCESS string it will be sent to Login page again. Here the error message returned from function has been stored in a errMessage key.
              request.getSession().setAttribute("user", null);
 			 return "login.jsp";
-		 }
+		 } 
 		 else 
 		 {
-			 
+			
 			 UserBean user=new UserBean();
 			 user.setUsername(username);
 			 user.setPassword(password);

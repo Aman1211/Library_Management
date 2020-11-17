@@ -5,7 +5,7 @@
           <img src="images/booklogo.jpg" height="50" width="100" style="margin-right:5px; border-radius:10px"   alt="">
         </a>
         <% if(session.getAttribute("role")==null || session.getAttribute("role").equals("Member")){ %>
-        <a class="navbar-brand" href="<%= application.getContextPath() %>/Controller?action=viewindex">Library Management System</a>
+        <a class="navbar-brand" href="<%= application.getContextPath() %>/Controller">Library Management System</a>
         <%}else { %>
          <a class="navbar-brand" href="<%= application.getContextPath() %>/Controller?action=viewadmin">Library Management System</a>
         <%} %>
@@ -16,6 +16,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto" style="margin-top:25px">
                 <%  if(session.getAttribute("user")!=null){ %>
+                <% if(session.getAttribute("role").equals("Member")){ %>
+                 <li class="nav-item">
+                    <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=requestlist">Request Book</a><br>
+                    
+                </li>
+                <%} %>
                  <li class="nav-item">
                     <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=logout">Logout</a><br>
                     

@@ -6,6 +6,6 @@ public class ActionLogout implements Action {
 	public String perform(HttpServletRequest request,HttpServletResponse response)
 	{
 		request.getSession().setAttribute("user",null);
-		 return "login.jsp";
+		 return "/Controller?action=viewindex";
 	}
 }

@@ -84,13 +84,16 @@ select {
  
   <div class="card-body">
     <h5 class="card-title"><%=b.getTitle() %></h5>
-    Author:- <b> <%=b.getAuthor() %></b><br>
-     ISBN:- <b> <%=b.getISBN() %></b><br>
-      Category:- <b> <%=b.getCategory() %></b><br>
-      Quantity:- <b> <%=b.getQty() %></b><br>
-        Rack:- <b> <%=b.getRack() %></b><br>
+  <ul class="list-group list-group-flush">
     
-   
+  
+    <li class="list-group-item">Author:- <b> <%=b.getAuthor() %></b></li>
+     <li class="list-group-item"> ISBN:- <b> <%=b.getISBN() %></b></li>
+      <li class="list-group-item">Category:- <b> <%=b.getCategory() %></b></li>
+     <li class="list-group-item"> Quantity:- <b> <%=b.getQty() %></b></li>
+       <li class="list-group-item"> Rack:- <b> <%=b.getRack() %></b></li>
+    
+   </ul>
   </div>
 </div>
 </div>

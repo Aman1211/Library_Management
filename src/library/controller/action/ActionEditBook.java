@@ -29,10 +29,7 @@ package library.controller.action;
 import library.controller.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import library.model.BookBean;
-import java.util.ArrayList;
+
 public class ActionEditBook implements Action {
 	 public String perform(HttpServletRequest request,
 	            HttpServletResponse response) {

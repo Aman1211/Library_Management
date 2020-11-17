@@ -1,52 +1,36 @@
- 
-   <%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList"%>
-<!DOCTYPE html>
 
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Registration</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<meta charset="ISO-8859-1">
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="icon" href="Favicon.png">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-</head>
-<body>
- <%@ include file="header.jsp" %> 
-<%
+ <%@ include file="adminhead.jsp" %> 
+      <div class="container-fluid">
+ <% 
 ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
 BookBean bb=new BookBean();
 bb=(BookBean)session.getAttribute("book");
-System.out.println(bb);
+
 %>
+<script>
+$(document).ready(function() {
+    $('#cat').value=<%=bb.getCategory()%>;
+} );
+</script>
+
+</script>
+<h3 style="margin-left:45%" >Edit Book</h3>
+  <hr>
   <main class="login-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Registration</div>
+                    <div class="card-header">Edit Book</div>
                     <div class="card-body">
                            <% if(bb!=null){
 	 %>
                             <form action="Controller" method="post"  enctype="multipart/form-data">
-                        <input type="hidden" name="action">
+                        <input type="hidden" name="action" value="editbookvalidate">
                             <div class="form-group row">
                                 <label for="isbn" class="col-md-4 col-form-label text-md-right">ISBN*</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="isbn" value=<%=bb.getISBN() %> class="form-control" name="isbn"  autofocus>
+                                    <input type="text" id="isbn" value=<%=bb.getISBN() %> class="form-control" name="isbn"  autofocus readonly>
                                 </div>
                             </div>
 
@@ -71,22 +55,46 @@ System.out.println(bb);
                             <div class="form-group row">
                                 <label for="Category" class="col-md-4 col-form-label text-md-right">Category*</label>
                                 <div class="col-md-6">
-                                    <select class="form-control" name="category">
-                                    <option>Art & Music </option>
-                                    <option>Biographic </option>
-                                    <option>Business </option>
-                                    <option>Comics </option>
-                                    <option>Computer & Technology</option>
-                                    <option>Cooking</option>
-                                    <option>Education & Reference </option>
-                                    <option>Entertainment </option>
-                                    <option>Health & Fitness </option>
-                                    <option>History </option>
-                                    <option>Literature & Fiction </option>
-                                    <option>Science-fiction & Fantasy </option>
-                                    <option>Science & Math </option>
-                                    <option>Self - Help </option>
-                                    <option>Sports </option>
+                                    <select class="form-control" id="cat" name="category">
+                                    <% if(bb.getCategory().equalsIgnoreCase("Art & Music")){ %>
+                                    <option value="Art & Music " selected>Art & Music </option>
+                                    <% } else { %>
+                                      <option value="Art & Music">Art & Music </option>
+                                      <%} %>
+                                       <% if(bb.getCategory().equalsIgnoreCase("Biographic")){ %>
+                                    <option value="Biographic" selected>Biographic </option>
+                                      <% } else { %>
+                                        <option value="Biographic">Biographic </option>
+                                         <%} %>
+                                      <% if(bb.getCategory().equalsIgnoreCase("Business")) {%>   
+                                    <option value="Business " selected>Business </option>
+                                    <% }else { %>
+                                       <option value="Business">Business</option>
+                                    <%} %>
+                                    <% if(bb.getCategory().equalsIgnoreCase("Comics")){ %>
+                                    <option value="Comics " selected>Comics </option>
+                                    <% }else{ %>
+                                      <option value="Comics ">Comics </option>
+                                    <%} %>
+                                     <% if(bb.getCategory().equalsIgnoreCase("Computer & Technology")){ %>
+                                    <option value="Computer & Technology" selected><%=bb.getCategory() %></option>
+                                    <% }else { %>
+                                     <option value="Computer & Technology">Computer & Technology </option>
+                                      <%} %>
+                                    <option value="Cooking">Cooking</option>
+                                    <option value="Education & Reference">Education & Reference </option>
+                                    <option value="Entertainment">Entertainment </option>
+                                    <option value="Health & Fitness">Health & Fitness </option>
+                                    <option value="History ">History </option>
+                                     <% if(bb.getCategory().equalsIgnoreCase("Literature & Fiction")){ %>
+                                    <option value="Literature & Fiction" selected>Literature & Fiction </option>
+                                     <% }else { %>
+                                      <option value="Literature & Fiction">Literature & Fiction </option>
+                                      <% } %>
+                                    <option value="Science-fiction & Fantasy">Science-fiction & Fantasy </option>
+                                    <option value="Science & Math">Science & Math </option>
+                                    <option value="Self - Help">Self - Help </option>
+                                    <option value="Sports">Sports </option>
                                     </select>
                                 </div>
                             </div>
@@ -95,7 +103,7 @@ System.out.println(bb);
                             <div class="form-group row">
                                 <label for="imageofbook" class="col-md-4 col-form-label text-md-right">Book image*</label>
                                 <div class="col-md-6">
-                                    <input type="file" id="bookimg" class="form-control" name="bookimg"  autofocus>
+                                    <input type="file" id="bookimg" class="form-control" name="bookimg" autofocus>
                                 </div>
                             </div>
                             
@@ -118,11 +126,16 @@ System.out.println(bb);
       </div>
       <% }} %>
      <div class="col-md-6 offset-md-4">
-                                <input type="submit" class="btn btn-primary" value="Add Book">
+                                <input type="submit" class="btn btn-primary" value="Edit Book">
                                     
                                          
        </div>
    </form>
    <% } %>
-</body>
-</html>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
