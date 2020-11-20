@@ -49,7 +49,7 @@ public class ActionEditBookValidate implements Action {
 		     int qty_i = Integer.parseInt(qty);
 		     int rack = Integer.parseInt(rno);
 		     BookBean bb=new BookBean(isbn,title,aname,category,qty_i,image,rack);
-		     if(image.isBlank())
+		     if(image.isEmpty())
 		     {
 		    	 BookBD.editBook(bb);
 		    	
