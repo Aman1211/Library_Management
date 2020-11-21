@@ -14,6 +14,12 @@ import java.util.*;
 
 
 public class UserServiceImpl extends UserService{
+	
+	
+	public ArrayList<UserTO>fetchAll()
+	{
+	    return dao.fetchAll();
+	}
 	public UserTO Verify(UserTO user) 
 	{
 		 String username=user.getUsername();
@@ -138,6 +144,7 @@ public class UserServiceImpl extends UserService{
 		}
 		return true;
 	}
+	
 	
 	private Userdao dao=new Userdao();
 }

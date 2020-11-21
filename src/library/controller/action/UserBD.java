@@ -1,8 +1,9 @@
 package library.controller.action;
 import library.service.*;
+import library.model.RequestBean;
 import library.model.UserBean;
-import library.service.UserService;
-import library.service.UserTO;
+
+import java.util.ArrayList;
 
 public class UserBD {
   
@@ -26,6 +27,22 @@ public class UserBD {
 	{
 		UserTO ut=Bean2TO(ub);
 		return service.forgot(ut);
+	}
+	
+	static ArrayList<UserBean>fetchAll()
+	{
+		ArrayList<UserBean> ub=new ArrayList<>();
+		
+		return Cast2Bean(service.fetchAll());
+		
+	}
+	
+	private static ArrayList<UserBean> Cast2Bean(ArrayList<UserTO> userst) {
+		ArrayList<UserBean> users = new ArrayList<>();
+		for(UserTO ut : userst) {
+			users.add( TO2Bean(ut) );
+		}
+		return users;
 	}
 		private static UserBean TO2Bean(UserTO bkt) {
 			UserBean user = new UserBean(bkt.getName(), bkt.getUsername(), 

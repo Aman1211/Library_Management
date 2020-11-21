@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-public class Bookdao {
+public class Bookdao extends BookdaoService {
 	// to fetch the books which matches keyword
 	public ArrayList<BookTO> fetchBook(String key) {
 		ArrayList<BookTO> bt = new ArrayList<>();

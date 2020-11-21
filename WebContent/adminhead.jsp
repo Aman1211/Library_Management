@@ -1,6 +1,6 @@
 
 
-<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.RequestBean"%>
+<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
+<script src="css/fstdropdown.js"></script>
+<link rel="stylesheet" href="css/fstdropdown.css">
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 <meta charset="ISO-8859-1">
  <meta charset="utf-8">
@@ -29,6 +30,10 @@
  $(document).ready(function() {
 	    $('#example').DataTable();
 	} );
+ 
+ $(document).ready(function() {
+	 $('.mdb-select').materialSelect();
+	 });
  </script>
 
 </head>
@@ -50,6 +55,7 @@
       <div class="list-group list-group-flush">
         <a href="<%=application.getContextPath() %>/Controller?action=managebook" class="list-group-item list-group-item-action bg-light">Manage Book</a>
         <a href="<%=application.getContextPath() %>/Controller?action=adminrequest" class="list-group-item list-group-item-action bg-light">View Requests</a>
+        <a href="<%=application.getContextPath() %>/Controller?action=issuebook" class="list-group-item list-group-item-action bg-light">Issue Book</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

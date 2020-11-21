@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.util.ArrayList;
 /**
  * Servlet implementation class Userdao
  */
-public class Userdao{
+public class Userdao extends UserdaoService{
 	public UserTO Find(String username,String password)
 	{
 		
@@ -145,6 +145,39 @@ public class Userdao{
 			}
 			
 			return ub;
+	}
+	
+	public ArrayList<UserTO>fetchAll()
+	{
+		ArrayList<UserTO>ut=new ArrayList<>();
+		try{
+
+			Connection con=DBConnection.createConnection();
+			         
+			PreparedStatement ps=con.prepareStatement(  
+			    "select * from login where Role not like ?");  
+			 ps.setString(1, "Admin");
+			              
+			ResultSet rs=ps.executeQuery(); 
+			while(rs.next())
+			{
+		     UserTO ub=new UserTO();
+		    ub.setUsername(rs.getString("Username"));
+			ub.setPassword(rs.getString("Password"));
+			ub.setContact(rs.getLong("Contact"));
+			ub.setType(rs.getString("Type"));
+			ub.setName(rs.getString("Name"));
+			ut.add(ub);
+			}
+			
+			
+			con.close();
+		}catch(Exception e)
+		{ 
+			return ut;
+		}
+		
+		return ut;
 	}
 		
 }
