@@ -65,7 +65,9 @@ select {
 </div>
 
  <div class="row">
- 
+  <form action="Controller" method="post">
+     <input type="text" id="username" class="form-control" hidden value="<%= session.getAttribute("user")%>" name="username"  autofocus>
+  </form>
  <%
  
  if(bb==null){
@@ -74,8 +76,9 @@ select {
  <% }
  else
  {
+	 
 	for(BookBean b:bb){  
-   
+		String isbn = b.getISBN();
 	 %>
   <div class="col-sm-3">
    <div class="card" style="width: 18rem; margin-top:10px">
@@ -92,7 +95,11 @@ select {
       <li class="list-group-item">Category:- <b> <%=b.getCategory() %></b></li>
      <li class="list-group-item"> Quantity:- <b> <%=b.getQty() %></b></li>
        <li class="list-group-item"> Rack:- <b> <%=b.getRack() %></b></li>
+      
+    <%  if(b.getQty()==0){ %>
+        <li class="list-group-item"><a class="btn btn-primary" href="<%= application.getContextPath() %>/Controller?action=reservebookvalidation&isbn=<%= isbn %>">Reserve</a></li>  
     
+    <% } %>
    </ul>
   </div>
 </div>
