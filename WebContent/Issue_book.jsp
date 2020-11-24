@@ -3,6 +3,7 @@
       <div class="container-fluid">
  <% 
 ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
+ArrayList<StringBuilder>arr1=(ArrayList<StringBuilder>)request.getAttribute("errMessage1");
 ArrayList<BookBean> bb=new ArrayList<>();
 ArrayList<UserBean> ub=new ArrayList<>();
 bb=(ArrayList<BookBean>)session.getAttribute("booklist");
@@ -20,12 +21,12 @@ ub=(ArrayList<UserBean>)session.getAttribute("userlist");
                     <div class="card-body">
                           
                             <form action="Controller" method="post"  enctype="multipart/form-data">
-                        <input type="hidden" name="action" value="editbookvalidate">
+                        <input type="hidden" name="action" value="issuebookvalidate">
                             <div class="form-group row">
                                 <label for="username" class="col-md-4 col-form-label text-md-right">Select Member*</label>
                                 <div class="col-md-6">
                                 <select  class="fstdropdown-select"  name="username" >
-                                <option value="">Select Member</option>
+                                <option value="null">Select Member</option>
                                 <% for(UserBean u:ub){ %>
                                 <option value=<%=u.getUsername() %>><%=u.getUsername()%>-<%=u.getName() %></option>
                                 <%} %>
@@ -36,8 +37,8 @@ ub=(ArrayList<UserBean>)session.getAttribute("userlist");
                               <div class="form-group row">
                                 <label for="username" class="col-md-4 col-form-label text-md-right">Select Book*</label>
                                 <div class="col-md-6">
-                                <select class="fstdropdown-select" name="book" autofocus>
-                                <option value="">Select Book</option>
+                                <select class="fstdropdown-select" name="book" autofocus multiple>
+                                <option value="null">Select Books</option>
                                 <% for(BookBean b:bb){ %>
                                 <option value=<%=b.getISBN() %>><%=b.getISBN()%>-<%=b.getTitle()%>-<%=b.getAuthor() %></option>
                                 <%} %>
@@ -58,8 +59,18 @@ ub=(ArrayList<UserBean>)session.getAttribute("userlist");
         <p> <span style="color:red"><%= s %> </span> </p>
       </div>
       <% }} %>
+      <% if(arr1==null){ %>
+         <div class="col-md-6 offset-md-4">
+        <p> <span style="color:red"> </span> </p>
+     </div>
+      <% }else { %>
+      <% for(StringBuilder s:arr1) {  %>
+       <div class="col-md-6 offset-md-4">
+        <p> <span style="color:blue"><%= s %> </span> </p>
+      </div>
+      <% }} %>
      <div class="col-md-6 offset-md-4">
-                                <input type="submit" class="btn btn-primary" value="Edit Book">
+                                <input type="submit" class="btn btn-primary" value="Issue Books">
                                     
                                          
        </div>

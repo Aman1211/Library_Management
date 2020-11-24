@@ -61,17 +61,17 @@ public class RequestServiceImpl extends RequestService{
       Session session = Session.getDefaultInstance(props,  
        new javax.mail.Authenticator() {  
          protected PasswordAuthentication getPasswordAuthentication() {  
-       return new PasswordAuthentication("aman.sharma122111@gmail.com","aman$1234");  
+       return new PasswordAuthentication("lmsecdss@gmail.com","lms$1234");  
          }  
        });  
      
       //Compose the message  
        try {  
         MimeMessage message = new MimeMessage(session);  
-        message.setFrom(new InternetAddress("aman.sharma122111@gmail.com"));  
+        message.setFrom(new InternetAddress("lmsecdss@gmail.com"));  
         message.addRecipient(Message.RecipientType.TO,new InternetAddress(rto.getUsername()));
         message.setSubject("Book Request Approved");  
-        message.setContent("<b> Hello,</b><br><h2> Requested Book with the following details has been added to Catalogue</h2><br>"
+        message.setContent("<b> Hello,</b><br><h3>> Requested Book with the following details has been added to Catalogue</h3><br>"
         		+ "Book Title:-" + rto.getTitle() + "<br>" + "Book Author:-"  + rto.getAuthor() + "<br>" + "Book Category:-"  + rto.getCategory() +"<br><br> Regards,<br>Library Admin.","text/html");  
  
         // Send message  

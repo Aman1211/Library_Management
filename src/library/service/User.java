@@ -18,9 +18,10 @@ public class User implements Cloneable {
 	private long Contact;
 	private String Type;
 	private String Role;
+	private int bookcnt;
 	
 	
-	public User(String name,String user,String pass,long con,String type,String role)
+	public User(String name,String user,String pass,long con,String type,String role,int cnt)
 	{
 		Name=name;
 		UserName=user;
@@ -28,6 +29,7 @@ public class User implements Cloneable {
 		Contact=con;
 	    Type=type;
 	    Role=role;
+	    bookcnt=cnt;
 	    
 	}
 	public User()
@@ -90,4 +92,13 @@ public class User implements Cloneable {
 		Role=role;
 	}
 	
+	public int getCnt()
+	{
+		return bookcnt;
+	}
+	
+	public void setCnt(int cnt)
+	{
+		bookcnt=cnt;
+	}
 }

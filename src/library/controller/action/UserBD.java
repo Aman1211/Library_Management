@@ -14,6 +14,11 @@ public class UserBD {
 	
 	}
 	
+	static UserBean getUser(String uname)
+	{
+		return TO2Bean(service.getUser(uname));
+	}
+	
 	static boolean addUser(UserBean ub) {
 		UserTO ut=Bean2TO(ub);
 		return service.addUser(ut);
@@ -46,12 +51,12 @@ public class UserBD {
 	}
 		private static UserBean TO2Bean(UserTO bkt) {
 			UserBean user = new UserBean(bkt.getName(), bkt.getUsername(), 
-					bkt.getPassword(), bkt.getContact(),bkt.getType(),bkt.getRole());
+					bkt.getPassword(), bkt.getContact(),bkt.getType(),bkt.getRole(),bkt.getCnt());
 			return user;
 		}
 
 		private static UserTO Bean2TO(UserBean bk) {
-			UserTO user = new UserTO(bk.getName(),bk.getUsername(),bk.getPassword(),bk.getContact(),bk.getType(),bk.getRole());
+			UserTO user = new UserTO(bk.getName(),bk.getUsername(),bk.getPassword(),bk.getContact(),bk.getType(),bk.getRole(),bk.getCnt());
 			return user;
 		}	
 		private static UserService service = UserService.getInstance();	

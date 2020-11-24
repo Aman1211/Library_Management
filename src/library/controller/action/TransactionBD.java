@@ -5,7 +5,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import library.model.TransactionBean;
 import java.util.ArrayList;
+import java.util.Set;
 public class TransactionBD {
+	static boolean verify(String username,String isbn)
+	{
+	  return service.verifytransaction(username,isbn);
+	}
+	static void issue(TransactionBean tb)
+	{
+		TransactionTO tt=Bean2TO(tb);
+		service.issue(tt);
+	}
+	
+	static void Notify(String uname,Set s) {
+		service.Notify(uname,s);
+	}
+	
+	
 	private static ArrayList<TransactionBean> Cast2Bean(ArrayList<TransactionTO> transactionst) {
 		ArrayList<TransactionBean> transactions = new ArrayList<>();
 		for(TransactionTO bkt : transactionst) {

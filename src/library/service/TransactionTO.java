@@ -10,7 +10,7 @@ public class TransactionTO {
  
  public TransactionTO(String isbn,String uname)
  {
-	 transaction=new Transaction(isbn,uname);
+	 transaction=new Transaction(uname,isbn);
  }
  
 	public int getTransactionId()

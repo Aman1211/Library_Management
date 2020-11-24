@@ -36,11 +36,8 @@ public class ActionRequestValidate implements Action {
     }
      
     String username=(String)request.getSession().getAttribute("user");
-<<<<<<< HEAD
     if(title.isEmpty() || author.isEmpty() || category.isEmpty() || getFileName(image).isBlank())
-=======
-    if(title.isEmpty() || author.isEmpty() || category.isEmpty() || getFileName(image).isEmpty()  )
->>>>>>> 1400c578592aeaa22dd59b9a60e6e9cda368b965
+    
     {
    	 String requestValidate="Please Fill the required fields!";
 	 request.setAttribute("errMessage", requestValidate); 

@@ -15,9 +15,10 @@ public class UserBean
 	private long Contact;
 	private String Type;
 	private String Role;
+	private int bookcnt;
 	
 	
-	public UserBean(String name,String user,String pass,long con,String type,String role)
+	public UserBean(String name,String user,String pass,long con,String type,String role,int cnt)
 	{
 		Name=name;
 		UserName=user;
@@ -25,6 +26,7 @@ public class UserBean
 		Contact=con;
 	    Type=type;
 	    Role=role;
+	    bookcnt=cnt;
 	    
 	}
 	public UserBean()
@@ -88,6 +90,16 @@ public class UserBean
 	public void setRole(String role)
 	{
 		Role=role;
+	}
+	
+	public int getCnt()
+	{
+		return bookcnt;
+	}
+	
+	public void setCnt(int cnt)
+	{
+		bookcnt=cnt;
 	}
 	
 }

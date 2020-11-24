@@ -66,7 +66,7 @@ public class ActionRegisterValidate implements Action{
                
    			 return "register.jsp";
            }
-	     UserBean ub=new UserBean(name,username,password,contact,type,"Member");
+	     UserBean ub=new UserBean(name,username,password,contact,type,"Member",0);
 	     boolean res=UserBD.addUser(ub);
 	     System.out.print(res + "aman");
 	     if(res==false)
