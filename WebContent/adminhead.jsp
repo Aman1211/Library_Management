@@ -1,11 +1,13 @@
 
 
+<<<<<<< HEAD
 <%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.*"%>
+=======
+<%@page pageEncoding="UTF-8" import="library.model.*,java.util.ArrayList"%>
+>>>>>>> 883800dc5be2de6867440a014564755a118f6ed4
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
 <title>Admin Panel</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"  rel="stylesheet" id="bootstrap-css">
@@ -53,6 +55,7 @@
       <div class="sidebar-heading">Menu</div>
        
       <div class="list-group list-group-flush">
+      	<a href="<%=application.getContextPath() %>/Controller?action=manageprofile" class="list-group-item list-group-item-action bg-light">Manage User Profile</a>
         <a href="<%=application.getContextPath() %>/Controller?action=managebook" class="list-group-item list-group-item-action bg-light">Manage Book</a>
         <a href="<%=application.getContextPath() %>/Controller?action=adminrequest" class="list-group-item list-group-item-action bg-light">View Requests</a>
         <a href="<%=application.getContextPath() %>/Controller?action=issuebook" class="list-group-item list-group-item-action bg-light">Issue Book</a>
