@@ -1,9 +1,6 @@
 package library.controller.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.mysql.cj.Session;
-
 import java.util.ArrayList;
 import library.controller.Action;
 import library.model.*;

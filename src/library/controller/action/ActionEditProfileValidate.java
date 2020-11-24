@@ -41,7 +41,8 @@ public class ActionEditProfileValidate implements Action {
 		    	 
 		    	 return "edit_profile.jsp";
 		     }
-		     pattern = Pattern.compile("^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$");
+		     pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		    	        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 		        match   = pattern.matcher(username);
 		        if(match.matches()) {
 		          
@@ -56,7 +57,7 @@ public class ActionEditProfileValidate implements Action {
 		     long con = Long.parseLong(contact);
 		     String pass = "";
 		     System.out.println("edit validate");
-		     UserBean ub=new UserBean(name,username,pass,con,type,"");
+		     UserBean ub=new UserBean(name,username,pass,con,type,"",0);
 		     UserBD.editProfile(ub, uname);
 	   return "/Controller?action=manageprofile";
 	}

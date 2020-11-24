@@ -10,5 +10,6 @@ public abstract class UserdaoService {
 	public abstract UserTO currentpassword_check(String Username,String current_password);
 	public abstract ArrayList<UserTO>fetchAll();
 	public abstract void incrementcnt(UserTO ut);
+	public abstract void updateProfile(UserTO ut, String uname);
 	
 }

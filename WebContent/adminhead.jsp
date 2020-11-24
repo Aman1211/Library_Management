@@ -1,10 +1,6 @@
 
-
-<<<<<<< HEAD
-<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.*"%>
-=======
 <%@page pageEncoding="UTF-8" import="library.model.*,java.util.ArrayList"%>
->>>>>>> 883800dc5be2de6867440a014564755a118f6ed4
+
 
 <!DOCTYPE html>
 <html>

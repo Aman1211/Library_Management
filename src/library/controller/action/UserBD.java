@@ -1,21 +1,14 @@
 package library.controller.action;
 import library.service.*;
-<<<<<<< HEAD
 import library.model.RequestBean;
-import library.model.UserBean;
-
 import java.util.ArrayList;
-=======
-
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import library.model.BookBean;
 import library.model.UserBean;
->>>>>>> 883800dc5be2de6867440a014564755a118f6ed4
+
 
 public class UserBD {
   
@@ -48,10 +41,6 @@ public class UserBD {
 		return users;
 	}
 		
-	static UserBean getUser(String username) {
-		return TO2Bean(service.getUser(username)); 
-			
-		}
 	
 	static void editProfile(UserBean ub, String uname)
 	{
@@ -65,21 +54,8 @@ public class UserBD {
 		return service.forgot(ut);
 	}
 	
-	static ArrayList<UserBean>fetchAll()
-	{
-		ArrayList<UserBean> ub=new ArrayList<>();
-		
-		return Cast2Bean(service.fetchAll());
-		
-	}
 	
-	private static ArrayList<UserBean> Cast2Bean(ArrayList<UserTO> userst) {
-		ArrayList<UserBean> users = new ArrayList<>();
-		for(UserTO ut : userst) {
-			users.add( TO2Bean(ut) );
-		}
-		return users;
-	}
+	
 		private static UserBean TO2Bean(UserTO bkt) {
 			UserBean user = new UserBean(bkt.getName(), bkt.getUsername(), 
 					bkt.getPassword(), bkt.getContact(),bkt.getType(),bkt.getRole(),bkt.getCnt());

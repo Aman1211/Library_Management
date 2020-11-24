@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-        
-    <wb-module deploy-name="Library_Management4">
-                
+    <wb-module deploy-name="Librart_Management4">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-                
-        <property name="context-root" value="Library_Management4"/>
+        <property name="context-root" value="Librart_Management4"/>
         <property name="java-output-path" value="/Librart_Management4/bin"/>
-            
     </wb-module>
-    
 </project-modules>

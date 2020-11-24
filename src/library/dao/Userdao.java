@@ -73,10 +73,7 @@ public class Userdao extends UserdaoService {
 
 		return ub;
 	}
-<<<<<<< HEAD
 
-	public void addUser(String uname, String pass, String name, long contact, String type, String role) {
-=======
 	
 	
 	public void updateProfile(UserTO ut, String uname)
@@ -100,21 +97,23 @@ public class Userdao extends UserdaoService {
 	
 	
 	public UserTO getUser(String username) {
-		System.out.println("in getuser dao" + username);
+		
 		UserTO uto = new UserTO();
 		try {
-			System.out.println("in getuser try block");
+			
 			Connection con = DBConnection.createConnection();
 			PreparedStatement ps = con.prepareStatement("select * from login where username = ?");
 			ps.setString(1, username);
 
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-				System.out.println("inside while");
+				
 				uto.setUsername(rs.getString("Username"));
 				uto.setName(rs.getString("Name"));
 				uto.setContact(Long.parseLong(rs.getString("Contact")));
 				uto.setType(rs.getString("Type"));
+				uto.setRole(rs.getString("Role"));
+				
 				
 			}
 
@@ -128,7 +127,7 @@ public class Userdao extends UserdaoService {
 	
 	public void addUser(String uname,String pass,String name,long contact,String type,String role)
 	{
->>>>>>> 883800dc5be2de6867440a014564755a118f6ed4
+
 		try {
 			Connection con = DBConnection.createConnection();
 			PreparedStatement ps = con.prepareStatement("insert into login values(?,?,?,?,?,?,?)");
@@ -146,12 +145,8 @@ public class Userdao extends UserdaoService {
 		} catch (Exception e) {
 
 		}
-<<<<<<< HEAD
-	}
 
-	public void updateUser(String uname, String pass) {
-=======
-	
+	}
 	
 	// to fetch all the users
 		public ArrayList<UserTO> fetchAll() {
@@ -187,7 +182,7 @@ public class Userdao extends UserdaoService {
 	
 	public void updateUser(String uname,String pass)
 	{
->>>>>>> 883800dc5be2de6867440a014564755a118f6ed4
+
 		try {
 			Connection con = DBConnection.createConnection();
 			PreparedStatement ps = con.prepareStatement("update login " + "set Password=? where Username = ?");
@@ -228,34 +223,6 @@ public class Userdao extends UserdaoService {
 		}
 
 		return ub;
-	}
-
-	public ArrayList<UserTO> fetchAll() {
-		ArrayList<UserTO> ut = new ArrayList<>();
-		try {
-
-			Connection con = DBConnection.createConnection();
-
-			PreparedStatement ps = con.prepareStatement("select * from login where Role not like ?");
-			ps.setString(1, "Admin");
-
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				UserTO ub = new UserTO();
-				ub.setUsername(rs.getString("Username"));
-				ub.setPassword(rs.getString("Password"));
-				ub.setContact(rs.getLong("Contact"));
-				ub.setType(rs.getString("Type"));
-				ub.setName(rs.getString("Name"));
-				ut.add(ub);
-			}
-
-			con.close();
-		} catch (Exception e) {
-			return ut;
-		}
-
-		return ut;
 	}
 
 	public void incrementcnt(UserTO ut) {
