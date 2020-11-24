@@ -1,5 +1,7 @@
 package library.dao;
 import java.sql.*;
+import java.util.ArrayList;
+
 import library.service.*;
 import library.util.DBConnection;
 import library.util.DBConnection.*;
@@ -78,6 +80,54 @@ public class Userdao{
 			return ub;
 	}
 	
+	
+	public void updateProfile(UserTO ut, String uname)
+	{
+		try {
+			System.out.println("user name beforr:::" + uname + "user name after" + ut.getUsername());
+			Connection con = DBConnection.createConnection();
+			PreparedStatement ps = con.prepareStatement("update login set Username=?,Name=?,Contact=?,Type=? where Username = ?");
+			ps.setString(1, ut.getUsername());
+			ps.setString(2, ut.getName());
+			ps.setLong(3, ut.getContact());
+			ps.setString(4, ut.getType());
+			ps.setString(5,uname);
+	
+
+			 ps.executeUpdate();
+			 con.close();
+		}
+		catch(Exception e) {}
+	}
+	
+	
+	public UserTO getUser(String username) {
+		System.out.println("in getuser dao" + username);
+		UserTO uto = new UserTO();
+		try {
+			System.out.println("in getuser try block");
+			Connection con = DBConnection.createConnection();
+			PreparedStatement ps = con.prepareStatement("select * from login where username = ?");
+			ps.setString(1, username);
+
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				System.out.println("inside while");
+				uto.setUsername(rs.getString("Username"));
+				uto.setName(rs.getString("Name"));
+				uto.setContact(Long.parseLong(rs.getString("Contact")));
+				uto.setType(rs.getString("Type"));
+				
+			}
+
+			con.close();
+		} catch (Exception e) {
+
+		}
+		return uto;
+	}
+	
+	
 	public void addUser(String uname,String pass,String name,long contact,String type,String role)
 	{
 		try {
@@ -98,6 +148,40 @@ public class Userdao{
 			
 		}
 		}
+	
+	
+	// to fetch all the users
+		public ArrayList<UserTO> fetchAll() {
+			ArrayList<UserTO> ut = new ArrayList<>();
+
+			try {
+				
+				System.out.println("IN FUNCTION");
+				Connection con = DBConnection.createConnection();
+				PreparedStatement ps = con.prepareStatement("select * from login");
+
+				ResultSet rs = ps.executeQuery();
+				
+				while (rs.next()) {
+					UserTO uto = new UserTO();
+					uto.setUsername(rs.getString("Username"));
+					uto.setName(rs.getString("Name"));
+					uto.setContact(Long.parseLong(rs.getString("Contact")));
+					uto.setType(rs.getString("Type"));
+					ut.add(uto);
+				}
+
+				con.close();
+			} catch (Exception e) {
+				System.out.println("error==="+e.getMessage());
+			}
+			return ut;
+		}
+	
+	
+	
+	
+	
 	public void updateUser(String uname,String pass)
 	{
 		try {

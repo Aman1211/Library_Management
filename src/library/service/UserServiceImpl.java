@@ -23,6 +23,23 @@ public class UserServiceImpl extends UserService{
 		 return ub;
 	}
 	
+	public ArrayList<UserTO>fetchAll()
+	   {
+		   ArrayList<UserTO>ut=new ArrayList<>();
+		   ut=dao.fetchAll();
+		   return ut;
+	   }
+	
+	
+	public UserTO getUser(String username) {
+		
+		 return dao.getUser(username);
+	    }
+	
+	public void editProfile(UserTO ut, String uname)
+	 {
+		 dao.updateProfile(ut, uname);
+	 }
 
 	public boolean addUser(UserTO user)
 	{

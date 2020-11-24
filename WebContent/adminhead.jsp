@@ -1,11 +1,9 @@
 
 
-<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.RequestBean"%>
+<%@page pageEncoding="UTF-8" import="library.model.*,java.util.ArrayList"%>
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
 <title>Admin Panel</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"  rel="stylesheet" id="bootstrap-css">
@@ -48,6 +46,7 @@
       <div class="sidebar-heading">Menu</div>
        
       <div class="list-group list-group-flush">
+      	<a href="<%=application.getContextPath() %>/Controller?action=manageprofile" class="list-group-item list-group-item-action bg-light">Manage User Profile</a>
         <a href="<%=application.getContextPath() %>/Controller?action=managebook" class="list-group-item list-group-item-action bg-light">Manage Book</a>
         <a href="<%=application.getContextPath() %>/Controller?action=adminrequest" class="list-group-item list-group-item-action bg-light">View Requests</a>
       </div>
