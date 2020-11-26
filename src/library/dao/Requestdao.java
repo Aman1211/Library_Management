@@ -3,7 +3,7 @@ import java.sql.*;
 import library.service.*;
 import library.util.DBConnection;
 import java.util.ArrayList;
-public class Requestdao {
+public class Requestdao extends RequestdaoService {
 	public void addRequest(RequestTO rt)
 	{
 		try {

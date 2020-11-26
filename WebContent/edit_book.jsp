@@ -81,8 +81,16 @@ $(document).ready(function() {
                                     <% }else { %>
                                      <option value="Computer & Technology">Computer & Technology </option>
                                       <%} %>
+                                      <% if(bb.getCategory().equalsIgnoreCase("Cooking")){ %>
+                                    <option value="Cooking" selected><%=bb.getCategory() %></option>
+                                    <% }else{ %>
                                     <option value="Cooking">Cooking</option>
-                                    <option value="Education & Reference">Education & Reference </option>
+                                    <%} %>
+                                     <% if(bb.getCategory().equalsIgnoreCase("Education & Reference")){ %>
+                                    <option value="Education & Reference" selected><%=bb.getCategory() %> </option>
+                                    <% } else {%>
+                                    <option value="Education & Reference">Education & Reference</option>
+                                    <%} %>
                                     <option value="Entertainment">Entertainment </option>
                                     <option value="Health & Fitness">Health & Fitness </option>
                                     <option value="History ">History </option>

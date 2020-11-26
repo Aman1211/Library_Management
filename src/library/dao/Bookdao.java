@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-public class Bookdao {
+public class Bookdao extends BookdaoService {
 	// to fetch the books which matches keyword
 	public ArrayList<BookTO> fetchBook(String key) {
 		ArrayList<BookTO> bt = new ArrayList<>();
@@ -211,5 +211,24 @@ public class Bookdao {
 
 		}
 	}
+	
+	public void decrementcnt(BookTO bt)
+	{
+		try {
+            bt.setQty(bt.getQty()-1);
+			Connection con = DBConnection.createConnection();
+
+			PreparedStatement ps = con.prepareStatement("update book set Qty=? where ISBN=?");
+
+			ps.setInt(1,bt.getQty());
+			ps.setString(2,bt.getISBN());
+     
+			int i = ps.executeUpdate();
+			con.close();
+	}
+		catch(Exception e)
+		{
+		}
+		}
 
 }

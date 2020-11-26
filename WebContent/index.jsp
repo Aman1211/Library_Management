@@ -96,7 +96,7 @@ select {
      <li class="list-group-item"> Quantity:- <b> <%=b.getQty() %></b></li>
        <li class="list-group-item"> Rack:- <b> <%=b.getRack() %></b></li>
       
-    <%  if(b.getQty()==0){ %>
+    <%  if(b.getQty()==0 && session.getAttribute("user")!=null){ %>
         <li class="list-group-item"><a class="btn btn-primary" href="<%= application.getContextPath() %>/Controller?action=reservebookvalidation&isbn=<%= isbn %>">Reserve</a></li>  
     
     <% } %>

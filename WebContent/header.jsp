@@ -29,9 +29,11 @@
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=changepassword">Change Password</a>
                 </li>
+                 <% if(session.getAttribute("role").equals("Member")){ %>
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=bookreservation">Book Reservation</a>
                 </li>
+                <%} %>
                 <% if(session.getAttribute("role").equals("Admin")){ %>
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=register">Add Member</a>

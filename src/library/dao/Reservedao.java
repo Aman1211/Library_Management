@@ -143,6 +143,31 @@ public class Reservedao {
 
 		return rto;
 	}
+	
+	public ArrayList<ReserveTO> verifyReservation(String isbn)
+	{
+		ArrayList<ReserveTO>rta=new ArrayList<>();
+		try {
+			Connection con=DBConnection.createConnection();
+			PreparedStatement ps=con.prepareStatement(  
+			    "select * from reserve where ISBN=?");
+			ps.setString(1,isbn);
+		    ResultSet rs=ps.executeQuery();
+		    while(rs.next())
+		    {
+		    ReserveTO rt=new ReserveTO();
+		    rt.setId(rs.getInt("ReserveId"));
+		    rt.setISBN(rs.getString("ISBN"));
+		    rt.setUsername(rs.getString("Username"));
+		    rta.add(rt);
+		    }
+	}
+	catch(Exception e)
+		{
+		
+		}
+		return rta;
+	}
 	public void cancelReserve(String isbn,String username) {
 		
 		try {

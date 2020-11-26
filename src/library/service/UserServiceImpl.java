@@ -14,6 +14,12 @@ import java.util.*;
 
 
 public class UserServiceImpl extends UserService{
+	
+	
+	public ArrayList<UserTO>fetchAll()
+	{
+	    return dao.fetchAll();
+	}
 	public UserTO Verify(UserTO user) 
 	{
 		 String username=user.getUsername();
@@ -23,6 +29,19 @@ public class UserServiceImpl extends UserService{
 		 return ub;
 	}
 	
+
+	public UserTO getUser(String uname)
+	{
+		return dao.Exists(uname);
+	}
+	
+	
+	
+	public void editProfile(UserTO ut, String uname)
+	 {
+		 dao.updateProfile(ut, uname);
+	 }
+
 
 	public boolean addUser(UserTO user)
 	{
@@ -54,17 +73,18 @@ public class UserServiceImpl extends UserService{
 	        Session session = Session.getDefaultInstance(props,  
 	         new javax.mail.Authenticator() {  
 	           protected PasswordAuthentication getPasswordAuthentication() {  
-	         return new PasswordAuthentication("aman.sharma122111@gmail.com","aman$1234");  
+	         return new PasswordAuthentication("lmsecdss@gmail.com","lms$1234");  
 	           }  
 	         });  
 	       
 	        //Compose the message  
 	         try {  
 	          MimeMessage message = new MimeMessage(session);  
-	          message.setFrom(new InternetAddress("aman.sharma122111@gmail.com"));  
+	          message.setFrom(new InternetAddress("lmsecdss@gmail.com"));  
 	          message.addRecipient(Message.RecipientType.TO,new InternetAddress(username));
-	          message.setSubject("Login Credentials of Library Management System");  
-	          message.setContent("<b> Hello " + name + ",</b><br><h2> Please find below the Credentials of Library Management System</h2><br>"
+	          message.setSubject("Login Credentials of Library Management System"); 
+	          
+	          message.setContent("<b> Hello " + name + ",</b><br><h3> Please find below the Credentials of Library Management System</h3><br>"
 	          		+ "Username:-" + username + "<br>" + "Password:-"  + password + "<br><br> Regards,<br>Library Admin.","text/html");  
 	   
 	          // Send message  
@@ -116,17 +136,17 @@ public class UserServiceImpl extends UserService{
 	        Session session = Session.getDefaultInstance(props,  
 	         new javax.mail.Authenticator() {  
 	           protected PasswordAuthentication getPasswordAuthentication() {  
-	         return new PasswordAuthentication("aman.sharma122111@gmail.com","aman$1234");  
+	         return new PasswordAuthentication("lmsecdss@gmail.com","lms$1234");  
 	           }  
 	         });  
 	       
 	        //Compose the message  
 	         try {  
 	          MimeMessage message = new MimeMessage(session);  
-	          message.setFrom(new InternetAddress("aman.sharma122111@gmail.com"));  
+	          message.setFrom(new InternetAddress("lmsecdss@gmail.com"));  
 	          message.addRecipient(Message.RecipientType.TO,new InternetAddress(username));
 	          message.setSubject("Password Recovery");  
-	          message.setContent("<b> Hello " + ub.getName() + ",</b><br><h2>It seems you have forgotten your password.Following is your current password:</h2><br>"+
+	          message.setContent("<b> Hello " + ub.getName() + ",</b><br><h3>It seems you have forgotten your password.Following is your current password:</h3><br>"+
 	          	 "<b>Password:-"  + ub.getPassword() + " </b><br><br> Regards,<br>Library Admin.","text/html");  
 	   
 	          // Send message  
@@ -138,6 +158,7 @@ public class UserServiceImpl extends UserService{
 		}
 		return true;
 	}
+	
 	
 	private Userdao dao=new Userdao();
 }

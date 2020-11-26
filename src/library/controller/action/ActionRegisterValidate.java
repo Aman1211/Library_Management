@@ -44,14 +44,15 @@ public class ActionRegisterValidate implements Action{
 	    	 request.getSession().setAttribute("user", null);
 	    	 view="register.jsp";
 	     }
-	     pattern = Pattern.compile("^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$");
+	     pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+	    	        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 	        match   = pattern.matcher(username);
 	        if(match.matches()) {
 	          
 	        } else {
 	        	err.add("Invalid Username!");
 	            request.setAttribute("errMessage",err);
-	            view="register.jsp";
+	            return "register.jsp";
 	        }
 	        String regex = "^(?=.*[0-9])"
                     + "(?=.*[a-z])(?=.*[A-Z])"
@@ -66,7 +67,7 @@ public class ActionRegisterValidate implements Action{
                
    			 return "register.jsp";
            }
-	     UserBean ub=new UserBean(name,username,password,contact,type,"Member");
+	     UserBean ub=new UserBean(name,username,password,contact,type,"Member",0);
 	     boolean res=UserBD.addUser(ub);
 	     System.out.print(res + "aman");
 	     if(res==false)

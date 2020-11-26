@@ -1,11 +1,9 @@
 
+<%@page pageEncoding="UTF-8" import="library.model.*,java.util.ArrayList"%>
 
-<%@page pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList,library.model.RequestBean"%>
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
 <title>Admin Panel</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"  rel="stylesheet" id="bootstrap-css">
@@ -14,7 +12,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
+<script src="css/fstdropdown.js"></script>
+<link rel="stylesheet" href="css/fstdropdown.css">
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 <meta charset="ISO-8859-1">
  <meta charset="utf-8">
@@ -29,6 +28,10 @@
  $(document).ready(function() {
 	    $('#example').DataTable();
 	} );
+ 
+ $(document).ready(function() {
+	 $('.mdb-select').materialSelect();
+	 });
  </script>
 
 </head>
@@ -36,7 +39,7 @@
  <% 
         if(session.getAttribute("user")==null)
         {
-        	 response.sendRedirect("index.jsp");
+        	 response.sendRedirect("/Controller");
         }
       %>
 <body>
@@ -48,8 +51,10 @@
       <div class="sidebar-heading">Menu</div>
        
       <div class="list-group list-group-flush">
+      	<a href="<%=application.getContextPath() %>/Controller?action=manageprofile" class="list-group-item list-group-item-action bg-light">Manage User Profile</a>
         <a href="<%=application.getContextPath() %>/Controller?action=managebook" class="list-group-item list-group-item-action bg-light">Manage Book</a>
         <a href="<%=application.getContextPath() %>/Controller?action=adminrequest" class="list-group-item list-group-item-action bg-light">View Requests</a>
+        <a href="<%=application.getContextPath() %>/Controller?action=issuebook" class="list-group-item list-group-item-action bg-light">Issue Book</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
