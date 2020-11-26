@@ -15,6 +15,7 @@ public class ActionManageBook implements Action {
 	 {
 		 ArrayList<BookBean>bb=new ArrayList<>();
 		 bb=BookBD.fetchAll();
+		 
 		 request.getSession().setAttribute("Itemlist", bb);		 
 		
 		 return "manage_book.jsp";
