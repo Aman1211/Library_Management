@@ -174,7 +174,7 @@ public class Bookdao extends BookdaoService {
 			rs.next();
 			bb.setISBN(rs.getString("ISBN"));
 			bb.setTitle(rs.getString("Title"));
-			bb.setAuthor(rs.getString("Auther"));
+			bb.setAuthor(rs.getString("Author"));
 			bb.setCategory(rs.getString("Category"));
 			bb.setQty(rs.getInt("Qty"));
 			bb.setImage(rs.getString("Image"));

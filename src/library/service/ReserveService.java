@@ -13,6 +13,7 @@ public abstract class ReserveService {
 	// public abstract ArrayList<RequestTO>getReserves();
 	// public abstract void approveRequest(int id);
 	 public abstract void cancelReserve(String isbn,String username);
+	 public abstract boolean getReservation(String isbn);
 	 
 	public static ReserveService getInstance() {
 

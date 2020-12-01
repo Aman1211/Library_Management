@@ -18,7 +18,10 @@ public class UserBD {
 	    return  TO2Bean( service.Verify(ut));     
 	
 	}
-	
+	static void decrement(String uname)
+	{
+		service.decrement(uname);
+	}	
 	static UserBean getUser(String uname)
 	{
 		return TO2Bean(service.getUser(uname));
