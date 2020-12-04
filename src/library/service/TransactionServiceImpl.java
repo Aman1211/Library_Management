@@ -29,6 +29,25 @@ public class TransactionServiceImpl extends TransactionService {
 		 }
 		 return result;
 	}
+	
+	   public ArrayList<TransactionTO>totalAmoountOfFine(String date)
+	   {
+
+		   ArrayList<TransactionTO>bt=new ArrayList<>();
+		   //bt=Transactiondao.top3mostissuedbook(date);
+		//   bt=Transactiondao.totalAmoountOfFine(date);
+		   bt=tdao.totalAmoountOfFine(date);
+		   return bt;
+	   }
+	   public ArrayList<TransactionTO>top3user(String date)
+	   {
+
+		   ArrayList<TransactionTO>bt=new ArrayList<>();
+		   //bt=Transactiondao.top3mostissuedbook(date);
+		//   bt=Transactiondao.totalAmoountOfFine(date);
+		   bt=tdao.top3user(date);
+		   return bt;
+	   }
 	public void issue(TransactionTO tt)
 	{
 		System.out.println(tt.getUsername() + " " +tt.getISBN());
@@ -51,6 +70,7 @@ public class TransactionServiceImpl extends TransactionService {
 	    tt.setDuedate(ddate);
 	    tt.setFine(0);
 	    tdao.issue(tt);
+	   
 	    BookTO bt=new BookTO();
 	    bt=bdao.getBook(tt.getISBN());
 	    udao.incrementcnt(ut);

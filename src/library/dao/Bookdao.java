@@ -47,6 +47,49 @@ public class Bookdao extends BookdaoService {
 	}
 
 	// to fetch all the books
+	public ArrayList<BookTO> top3mostissuedbook(String date) {
+	
+		ArrayList<BookTO> bt = new ArrayList<>();
+		
+    String[] ans=date.trim().split("-");
+
+		try {
+			Connection con = DBConnection.createConnection();
+			PreparedStatement ps = con.prepareStatement("select count(*) as count1,ISBN from transaction where ?=month(IssueDate) and ?=year(IssueDate) group by ISBN having count(*) >=(select *from (select distinct(p2.count) as countt from(select count(*) as count,ISBN from transaction where ?=month(IssueDate) and ?=year(IssueDate) group by ISBN order by count(*) desc)as p2 limit 3) as p order by p.countt limit 1)order by count(*) desc");
+			ps.setString(1, ans[1]);
+			ps.setString(2, ans[0]);
+			ps.setString(3, ans[1]);
+			ps.setString(4, ans[0]);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+
+				PreparedStatement ps1 = con.prepareStatement("select * from book where ISBN=?");
+				ps1.setString(1,rs.getString("ISBN"));
+				ResultSet rs1 = ps1.executeQuery();
+				while (rs1.next()) {
+
+					BookTO bto = new BookTO();
+					bto.setISBN(rs1.getString("ISBN"));
+					bto.setTitle(rs1.getString("Title"));
+					bto.setAuthor(rs1.getString("Author"));
+					bto.setCategory(rs1.getString("Category"));
+					bto.setQty(rs1.getInt("Qty"));
+					bto.setImage(rs1.getString("Image"));
+					//in rack count will be stored
+					bto.setRack(rs.getInt("count1"));
+					bt.add(bto);
+
+				}
+				
+
+			}
+
+			con.close();
+		} catch (Exception e) {
+                System.out.println("erro="+e.getMessage());
+		}
+		return bt;
+	}
 	public ArrayList<BookTO> fetchAll() {
 		ArrayList<BookTO> bt = new ArrayList<>();
 

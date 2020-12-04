@@ -16,7 +16,12 @@ public class BookBD {
 	{
 		return Cast2Bean(service.fetchAll());
 	}
-	
+
+	static ArrayList<BookBean> top3mostissuedbook(String date)
+	{
+		
+		return Cast2Bean(service.top3mostissuedbook(date));
+	}
 	static boolean addBook(BookBean bb,HttpServletResponse response,HttpServletRequest request, Part img) {
 		BookTO bt=Bean2TO(bb);
 		return service.addBook(bt,response,request,img);
@@ -51,6 +56,7 @@ static BookBean getBook(String isbn) {
 	return TO2Bean(service.getBook(isbn)); 
 		
 	}
+
 	
 
 	private static BookBean TO2Bean(BookTO bkt) {

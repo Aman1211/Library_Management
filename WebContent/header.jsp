@@ -38,6 +38,7 @@
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=register">Add Member</a>
                 </li>
+                
                 <%} %>
                
                 <% } else { %>

@@ -20,6 +20,7 @@ public class BookServiceImpl extends BookService {
    {
 	   ArrayList<BookTO>bt=new ArrayList<>();
 	   bt=bookdo.fetchBook(key);
+	   
 	   return bt;
    }
    public ArrayList<BookTO>fetchAll()
@@ -28,7 +29,13 @@ public class BookServiceImpl extends BookService {
 	   bt=bookdo.fetchAll();
 	   return bt;
    }
-
+   public ArrayList<BookTO>top3mostissuedbook(String date)
+   {
+	   ArrayList<BookTO>bt=new ArrayList<>();
+	   bt=bookdo.top3mostissuedbook(date);
+	   return bt;
+   }
+   
    
    public boolean addBook(BookTO bt,HttpServletResponse res,HttpServletRequest req,Part img)
    {
