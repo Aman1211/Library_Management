@@ -121,6 +121,10 @@ public class TransactionServiceImpl extends TransactionService {
 	    return tdao.fetchTransactions(uname);
 	}
 	
+	public ArrayList<TransactionTO> getAllTransactions(String uname)
+	{
+		return tdao.fetchAllTransactions(uname);
+	}
 	public int checkFine(int id)
 	{
 		 TransactionTO tt=tdao.fetchTransaction(id);

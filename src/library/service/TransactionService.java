@@ -7,6 +7,7 @@ public abstract class TransactionService {
 	public abstract void renew(TransactionTO tt);
 	public abstract void Notify(String uname,Set s);
 	public abstract ArrayList<TransactionTO> getTransactions(String uname);
+	public abstract ArrayList<TransactionTO> getAllTransactions(String uname);
 	public abstract int checkFine(int id);
 	public abstract void markFine(int id,int fine);
 	public abstract TransactionTO getTransaction(int id);

@@ -43,6 +43,10 @@ public class TransactionBD {
 	{
 		return  Cast2Bean(service.getTransactions(uname));
 	}
+	static ArrayList<TransactionBean>getAllTransactions(String uname)
+	{
+		return Cast2Bean(service.getAllTransactions(uname));
+	}
 	
 	
 	private static ArrayList<TransactionBean> Cast2Bean(ArrayList<TransactionTO> transactionst) {

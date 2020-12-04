@@ -111,4 +111,32 @@ public class Transactiondao extends TransactiondaoService {
 		{}
 		return arr;
 	}
+	public ArrayList<TransactionTO>fetchAllTransactions(String uname)
+	{
+		
+		ArrayList<TransactionTO>arr=new ArrayList<>();
+		try {
+			 Connection con=DBConnection.createConnection();
+			 PreparedStatement ps=con.prepareStatement("select * from transaction where Username=?");
+			 ps.setString(1,uname);
+			 ResultSet rs=ps.executeQuery();
+			 while(rs.next())
+			 {
+			        TransactionTO tt=new TransactionTO();
+			        tt.setISBN(rs.getString("ISBN"));
+			        tt.setTransactionId(rs.getInt("TransactionId"));
+			        tt.setUsername(rs.getString("Username"));
+			        tt.setIssuedate(rs.getDate("IssueDate"));
+			        tt.setDuedate(rs.getDate("DueDate"));
+			        tt.setFine(rs.getInt("Fine"));
+			        arr.add(tt);
+			        
+			 }
+			 
+		}
+		catch(Exception e)
+		{}
+		return arr;
+	}
+  
 }

@@ -22,10 +22,7 @@
                     
                 </li>
                 <%} %>
-                 <li class="nav-item">
-                    <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=logout">Logout</a><br>
-                    
-                </li>
+              
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=changepassword">Change Password</a>
                 </li>
@@ -34,12 +31,21 @@
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=bookreservation">Book Reservation</a>
                 </li>
                 <%} %>
+                  <% if(session.getAttribute("role").equals("Member")){ %>
+                <li class="nav-item" >
+                 <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=mytran">My Transactions</a>
+                </li>
+                <%} %>
+                  
                 <% if(session.getAttribute("role").equals("Admin")){ %>
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=register">Add Member</a>
                 </li>
                 <%} %>
-               
+                <li class="nav-item">
+                    <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=logout">Logout</a><br>
+                    
+                </li>
                 <% } else { %>
                 <li class="nav-item" style="margin-left:30px">
                     <a class="nav-link" href="<%=application.getContextPath() %>/Controller?action=login">Login</a>
