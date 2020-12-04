@@ -3,6 +3,8 @@ import library.service.*;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+
+import library.model.BookBean;
 import library.model.TransactionBean;
 import java.util.ArrayList;
 import java.util.Set;
@@ -46,6 +48,18 @@ public class TransactionBD {
 	static ArrayList<TransactionBean>getAllTransactions(String uname)
 	{
 		return Cast2Bean(service.getAllTransactions(uname));
+	}
+	
+	
+	static ArrayList<TransactionBean> top3user(String date)
+	{
+		
+		return Cast2Bean(service.top3user(date));
+	}
+	static ArrayList<TransactionBean> totalAmoountOfFine(String date)
+	{
+		
+		return Cast2Bean(service.totalAmoountOfFine(date));
 	}
 	
 	

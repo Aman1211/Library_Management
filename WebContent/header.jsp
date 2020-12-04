@@ -41,6 +41,7 @@
                 <li class="nav-item" >
                  <a class="nav-link" href="<%= application.getContextPath() %>/Controller?action=register">Add Member</a>
                 </li>
+                
                 <%} %>
                 <li class="nav-item">
                     <a  class="nav-link" href="<%= application.getContextPath() %>/Controller?action=logout">Logout</a><br>

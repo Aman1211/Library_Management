@@ -55,8 +55,12 @@
         <a href="<%=application.getContextPath() %>/Controller?action=managebook" class="list-group-item list-group-item-action bg-light">Manage Book</a>
         <a href="<%=application.getContextPath() %>/Controller?action=adminrequest" class="list-group-item list-group-item-action bg-light">View Requests</a>
         <a href="<%=application.getContextPath() %>/Controller?action=issuebook" class="list-group-item list-group-item-action bg-light">Issue Book</a>
+<<<<<<< HEAD
+        <a href="<%= application.getContextPath() %>/Controller?action=reportgeneration" class="list-group-item list-group-item-action bg-light">Generate Report</a>
+=======
         <a href="<%=application.getContextPath() %>/Controller?action=renew" class="list-group-item list-group-item-action bg-light">Renew Book</a>
         
+>>>>>>> d297e29afbf2ac35750c5009c17de6005061a39d
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

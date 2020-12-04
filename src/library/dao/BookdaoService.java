@@ -7,6 +7,7 @@ import library.service.BookTO;
 public abstract class BookdaoService {
 	public abstract ArrayList<BookTO> fetchBook(String key);
 	public abstract ArrayList<BookTO> fetchAll();
+	public abstract ArrayList<BookTO> top3mostissuedbook(String date);
 	public abstract void deleteBook(String isbn);
 	public abstract BookTO getBook(String isbn);
 	public abstract void updateBook(BookTO bt);
@@ -14,4 +15,5 @@ public abstract class BookdaoService {
 	public abstract BookTO Exists(String isbn);
 	public abstract void decrementcnt(BookTO bt);
 	public abstract void addBook(String ISBN, String Title, String Author, String Category, int Qty, String Image, int Rack);
+	
 }
