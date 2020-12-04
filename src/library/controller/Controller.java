@@ -33,7 +33,7 @@ public class Controller extends HttpServlet {
         String theAction = (String)request.getParameter("action");
         if ( theAction == null)
             theAction = "viewindex";
-        
+        System.out.println(theAction + "xddasdssSasaSA");
         Action action = getActionFromConfig( theAction );
 
         String view = action.perform(request, response);

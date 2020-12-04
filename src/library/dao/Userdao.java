@@ -241,5 +241,23 @@ public class Userdao extends UserdaoService {
 		} catch (Exception e) {
 		}
 	}
+	
+	public void decrementcnt(String uname) {
+		UserTO ut=getUser(uname);
+		int cnt=ut.getCnt();
+		cnt=cnt-1;
+		try {
+
+			Connection con = DBConnection.createConnection();
+
+			PreparedStatement ps = con.prepareStatement("update login set BookCnt=? where Username=?");
+			ps.setInt(1, cnt);
+			ps.setString(2, uname);
+
+			int i = ps.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+		}
+	}
 
 }

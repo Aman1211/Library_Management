@@ -67,6 +67,18 @@ public class ReserveServiceImpl extends ReserveService{
 	{
 		return rdao.fetchReservations(username);
 	}
+	
+	public boolean getReservation(String isbn)
+	{
+          ArrayList<ReserveTO>rt=new ArrayList<>();
+          rt=rdao.verifyReservation(isbn);
+          if(rt.isEmpty())
+          {
+        	  return true;
+          }
+          else
+          return false;
+	}
 
 	private Reservedao rdao=new Reservedao();
 }

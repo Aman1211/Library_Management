@@ -22,6 +22,11 @@ public class ReserveBD {
 		return service.addReserve(rt, response, request);
 	}
 	
+	static boolean getReservation(String isbn)
+	{
+		return service.getReservation(isbn);
+	}
+	
 	static ArrayList<ReserveBean>getReservations(String username)
 	{
 		return Cast2Bean(service.getReservations(username));

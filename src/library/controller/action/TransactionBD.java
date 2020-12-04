@@ -18,9 +18,32 @@ public class TransactionBD {
 		TransactionTO tt=Bean2TO(tb);
 		service.issue(tt);
 	}
+	static void renew(TransactionBean tb)
+	{
+		TransactionTO tt=Bean2TO(tb);
+		service.renew(tt);
+	}
 	
 	static void Notify(String uname,Set s) {
 		service.Notify(uname,s);
+	}
+	
+	static int checkFine(int id)
+	{
+		return service.checkFine(id);
+	}
+	
+	static void markFine(int id,int fine)
+	{
+		service.markFine(id,fine);
+	}
+	static TransactionBean getTransaction(int id)
+	{
+		return TO2Bean(service.getTransaction(id));
+	}
+	static ArrayList<TransactionBean>getTransactions(String uname)
+	{
+		return  Cast2Bean(service.getTransactions(uname));
 	}
 	
 	

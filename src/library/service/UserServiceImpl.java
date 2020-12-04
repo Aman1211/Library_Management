@@ -20,6 +20,11 @@ public class UserServiceImpl extends UserService{
 	{
 	    return dao.fetchAll();
 	}
+	
+	public void decrement(String uname)
+	{
+		dao.decrementcnt(uname);
+	}
 	public UserTO Verify(UserTO user) 
 	{
 		 String username=user.getUsername();

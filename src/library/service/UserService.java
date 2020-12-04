@@ -14,7 +14,7 @@ public abstract class UserService{
 	public abstract UserTO getUser(String username);
 	public abstract void editProfile(UserTO ut , String uname);
 	public abstract ArrayList<UserTO>fetchAll();
-
+    public abstract void decrement(String uname);
 	public static UserService getInstance() {
     	return new UserServiceImpl();
     }
