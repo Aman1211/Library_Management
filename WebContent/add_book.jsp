@@ -1,5 +1,5 @@
   <%@ include file="adminhead.jsp" %> 
-      <div class="container-fluid">
+      <div class="container-fluid m-5">
   <% ArrayList<String>arr=(ArrayList<String>)request.getAttribute("errMessage");
 %>
  <h3 style="margin-left:45%" >Add Book</h3>

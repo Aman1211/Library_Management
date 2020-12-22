@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8" import="library.model.BookBean,java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -19,6 +18,7 @@ select {
 }
 </style>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="shortcut icon" href="images/booklogo.jpg" type="image/x-icon" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -64,7 +64,7 @@ select {
   </div>
 </div>
 
- <div class="row">
+ <div class="row m-5">
   <form action="Controller" method="post">
      <input type="text" id="username" class="form-control" hidden value="<%= session.getAttribute("user")%>" name="username"  autofocus>
   </form>
@@ -81,12 +81,12 @@ select {
 		String isbn = b.getISBN();
 	 %>
   <div class="col-sm-3">
-   <div class="card" style="width: 18rem; margin-top:10px">
-  <img src=<%= b.getImage() %> height="200px" class="card-img-top" alt="...">
+   <div class="card" style="width: 24rem;">
+  <img src=<%= b.getImage() %> height="320px" class="card-img-top" alt="...">
   
  
   <div class="card-body">
-    <h5 class="card-title"><%=b.getTitle() %></h5>
+    <h5 class="card-title"><b><%=b.getTitle() %></b></h5>
   <ul class="list-group list-group-flush">
     
   

@@ -8,6 +8,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"  rel="stylesheet" id="bootstrap-css">
 <link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" >
+<link rel="shortcut icon" href="images/booklogo.jpg" type="image/x-icon" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -55,12 +56,8 @@
         <a href="<%=application.getContextPath() %>/Controller?action=managebook" class="list-group-item list-group-item-action bg-light">Manage Book</a>
         <a href="<%=application.getContextPath() %>/Controller?action=adminrequest" class="list-group-item list-group-item-action bg-light">View Requests</a>
         <a href="<%=application.getContextPath() %>/Controller?action=issuebook" class="list-group-item list-group-item-action bg-light">Issue Book</a>
-<<<<<<< HEAD
         <a href="<%= application.getContextPath() %>/Controller?action=reportgeneration" class="list-group-item list-group-item-action bg-light">Generate Report</a>
-=======
         <a href="<%=application.getContextPath() %>/Controller?action=renew" class="list-group-item list-group-item-action bg-light">Renew Book</a>
-        
->>>>>>> d297e29afbf2ac35750c5009c17de6005061a39d
       </div>
     </div>
     <!-- /#sidebar-wrapper -->

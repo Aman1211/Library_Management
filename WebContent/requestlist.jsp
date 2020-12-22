@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" href="images/booklogo.jpg" type="image/x-icon" />
 <link
 	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
@@ -48,11 +49,13 @@
 
 </head>
 <body>
+
 	<%
 		ArrayList<RequestBean> bb = new ArrayList<>();
 	bb = (ArrayList<RequestBean>) session.getAttribute("rlist");
 	%>
 	<%@ include file="header.jsp"%>
+	<div class="m-5	">
 	<a style="margin-top: 5px; margin-bottom: 5px"
 		href="<%=application.getContextPath()%>/Controller?action=request "
 		class="btn btn-primary">Add Request</a>
@@ -104,6 +107,7 @@
 
 		</tbody>
 	</table>
+	</div>
 </body>
 
 

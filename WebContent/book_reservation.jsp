@@ -4,6 +4,7 @@
 <html>
 <head>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="shortcut icon" href="images/booklogo.jpg" type="image/x-icon" />
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="ISO-8859-1">
@@ -22,10 +23,11 @@
 <body>
  <%@ include file="header.jsp" %>  
       <div class="container-fluid">
+      <div class="m-5">
       <% ArrayList<BookBean>bb=new ArrayList<>();
    bb=(ArrayList<BookBean>)session.getAttribute("Itemlist");
  	%>
-      <h3 style="margin-left:45%" >Book Reservation Details</h3>
+      <h3 style="center" >Book Reservation Details</h3>
   <hr>
        
       
@@ -62,6 +64,7 @@
        <% }} %>
     </tbody>
   </table>
+  </div>
       
       
       </div>
