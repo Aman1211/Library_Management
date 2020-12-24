@@ -14,7 +14,6 @@ public abstract class TransactiondaoService {
 	public abstract ArrayList<TransactionTO> totalAmoountOfFine(String date);
 
 	public abstract ArrayList<TransactionTO> top3user(String date);
-
 	public abstract ArrayList<TransactionTO> fetchTransactions(String uname);
 
 	public abstract ArrayList<TransactionTO> fetchAllTransactions(String uname);
