@@ -147,5 +147,5 @@ public class UserServiceImpl extends UserService {
 		return true;
 	}
 
-	private Userdao dao = new Userdao();
+	private UserdaoImpl dao = new UserdaoImpl();
 }

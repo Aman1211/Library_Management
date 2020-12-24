@@ -84,5 +84,5 @@ public class RequestServiceImpl extends RequestService {
 		rdao.removeRequest(id);
 	}
 
-	private Requestdao rdao = new Requestdao();
+	private RequestdaoImpl rdao = new RequestdaoImpl();
 }

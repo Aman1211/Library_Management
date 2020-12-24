@@ -249,8 +249,8 @@ public class TransactionServiceImpl extends TransactionService {
 		return tdao.fetchTransaction(id);
 	}
 
-	Reservedao rdao = new Reservedao();
-	Transactiondao tdao = new Transactiondao();
-	Userdao udao = new Userdao();
-	Bookdao bdao = new Bookdao();
+	ReservedaoImpl rdao = new ReservedaoImpl();
+	TransactiondaoImpl tdao = new TransactiondaoImpl();
+	UserdaoImpl udao = new UserdaoImpl();
+	BookdaoImpl bdao = new BookdaoImpl();
 }

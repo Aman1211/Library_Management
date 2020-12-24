@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import library.dao.Requestdao;
-import library.dao.Reservedao;
-import library.dao.Userdao;
-import library.dao.Bookdao;
+import library.dao.RequestdaoImpl;
+import library.dao.ReservedaoImpl;
+import library.dao.UserdaoImpl;
+import library.dao.BookdaoImpl;
 
 public class ReserveServiceImpl extends ReserveService {
 
@@ -106,7 +106,7 @@ public class ReserveServiceImpl extends ReserveService {
 
 	}
 
-	private Reservedao rdao = new Reservedao();
-	private Userdao udao = new Userdao();
-	private Bookdao bdao = new Bookdao();
+	private ReservedaoImpl rdao = new ReservedaoImpl();
+	private UserdaoImpl udao = new UserdaoImpl();
+	private BookdaoImpl bdao = new BookdaoImpl();
 }

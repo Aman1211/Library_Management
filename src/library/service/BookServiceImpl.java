@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import library.dao.Bookdao;
+import library.dao.BookdaoImpl;
 
 public class BookServiceImpl extends BookService {
 	public ArrayList<BookTO> Search(String key) {
@@ -112,5 +112,5 @@ public class BookServiceImpl extends BookService {
 
 	}
 
-	private Bookdao bookdo = new Bookdao();
+	private BookdaoImpl bookdo = new BookdaoImpl();
 }
