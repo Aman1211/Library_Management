@@ -5,11 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import library.controller.Action;
 
-public class ActionSearchBook implements Action{
-	 public String perform(HttpServletRequest request,
-	            HttpServletResponse response)
-	 {
-		 return "index.jsp";
-		  
-} 
+public class ActionSearchBook implements Action {
+	public String perform(HttpServletRequest request, HttpServletResponse response) {
+		return "index.jsp";
+
+	}
 }

@@ -49,11 +49,11 @@
 </head>
 <body>
 	<%
-		Map<TransactionBean,BookBean> bb = new HashMap<>();
-	bb = (Map<TransactionBean,BookBean>) session.getAttribute("tlist");
+		Map<TransactionBean, BookBean> bb = new HashMap<>();
+	bb = (Map<TransactionBean, BookBean>) session.getAttribute("tlist");
 	%>
 	<%@ include file="header.jsp"%>
-	<div style="margin-bottom:10px"></div>
+	<div style="margin-bottom: 10px"></div>
 	<table id="example" class="table table-striped table-bordered"
 		style="width: 100%">
 		<thead>
@@ -72,30 +72,26 @@
 			<h3 style="margin-left: 45%">No Item Found</h3>
 			<%
 				} else {
-					Set set=bb.entrySet();
-				    Iterator itr=set.iterator();  
-				    while(itr.hasNext()){  
-				        Map.Entry entry=(Map.Entry)itr.next(); 
-				        TransactionBean t=(TransactionBean)entry.getKey();
-						BookBean b=(BookBean)entry.getValue();
+			Set set = bb.entrySet();
+			Iterator itr = set.iterator();
+			while (itr.hasNext()) {
+				Map.Entry entry = (Map.Entry) itr.next();
+				TransactionBean t = (TransactionBean) entry.getKey();
+				BookBean b = (BookBean) entry.getValue();
 			%>
 			<tr>
 				<td align="center"><%=b.getTitle()%></td>
 				<td align="center"><%=b.getAuthor()%></td>
-				<td align="center"><%= t.getIssuedate() %></td>
-				<td align="center">
-				   <%= t.getDuedate() %>
-					</td>
+				<td align="center"><%=t.getIssuedate()%></td>
+				<td align="center"><%=t.getDuedate()%></td>
 				<%
 					if (t.getFine() == -1) {
 				%>
-				<td align="center">
-				        DueDate yet to be arrived.
-						</td>
+				<td align="center">Not Returned till now</td>
 				<%
 					} else {
 				%>
-				<td align="center"><%= t.getFine() %></td>
+				<td align="center"><%=t.getFine()%></td>
 				<%
 					}
 				%>

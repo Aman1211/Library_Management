@@ -48,14 +48,15 @@ public class Bookdao extends BookdaoService {
 
 	// to fetch all the books
 	public ArrayList<BookTO> top3mostissuedbook(String date) {
-	
+
 		ArrayList<BookTO> bt = new ArrayList<>();
-		
-    String[] ans=date.trim().split("-");
+
+		String[] ans = date.trim().split("-");
 
 		try {
 			Connection con = DBConnection.createConnection();
-			PreparedStatement ps = con.prepareStatement("select count(*) as count1,ISBN from transaction where ?=month(IssueDate) and ?=year(IssueDate) group by ISBN having count(*) >=(select *from (select distinct(p2.count) as countt from(select count(*) as count,ISBN from transaction where ?=month(IssueDate) and ?=year(IssueDate) group by ISBN order by count(*) desc)as p2 limit 3) as p order by p.countt limit 1)order by count(*) desc");
+			PreparedStatement ps = con.prepareStatement(
+					"select count(*) as count1,ISBN from transaction where ?=month(IssueDate) and ?=year(IssueDate) group by ISBN having count(*) >=(select *from (select distinct(p2.count) as countt from(select count(*) as count,ISBN from transaction where ?=month(IssueDate) and ?=year(IssueDate) group by ISBN order by count(*) desc)as p2 limit 3) as p order by p.countt limit 1)order by count(*) desc");
 			ps.setString(1, ans[1]);
 			ps.setString(2, ans[0]);
 			ps.setString(3, ans[1]);
@@ -64,7 +65,7 @@ public class Bookdao extends BookdaoService {
 			while (rs.next()) {
 
 				PreparedStatement ps1 = con.prepareStatement("select * from book where ISBN=?");
-				ps1.setString(1,rs.getString("ISBN"));
+				ps1.setString(1, rs.getString("ISBN"));
 				ResultSet rs1 = ps1.executeQuery();
 				while (rs1.next()) {
 
@@ -75,21 +76,21 @@ public class Bookdao extends BookdaoService {
 					bto.setCategory(rs1.getString("Category"));
 					bto.setQty(rs1.getInt("Qty"));
 					bto.setImage(rs1.getString("Image"));
-					//in rack count will be stored
+					// in rack count will be stored
 					bto.setRack(rs.getInt("count1"));
 					bt.add(bto);
 
 				}
-				
 
 			}
 
 			con.close();
 		} catch (Exception e) {
-                System.out.println("erro="+e.getMessage());
+			System.out.println("erro=" + e.getMessage());
 		}
 		return bt;
 	}
+
 	public ArrayList<BookTO> fetchAll() {
 		ArrayList<BookTO> bt = new ArrayList<>();
 
@@ -163,44 +164,44 @@ public class Bookdao extends BookdaoService {
 		}
 		return bto;
 	}
-	
-	public void updateBook(BookTO bt)
-	{
+
+	public void updateBook(BookTO bt) {
 		try {
 
 			Connection con = DBConnection.createConnection();
-			PreparedStatement ps = con.prepareStatement("update book set Title=?,Author=?,Qty=?,Category=?,Rackno=? where ISBN = ?");
+			PreparedStatement ps = con
+					.prepareStatement("update book set Title=?,Author=?,Qty=?,Category=?,Rackno=? where ISBN = ?");
 			ps.setString(1, bt.getTitle());
 			ps.setString(2, bt.getAuthor());
 			ps.setInt(3, bt.getQty());
-			ps.setString(4,bt.getCategory());
-			ps.setInt(5,bt.getRack());
-			ps.setString(6,bt.getISBN());
+			ps.setString(4, bt.getCategory());
+			ps.setInt(5, bt.getRack());
+			ps.setString(6, bt.getISBN());
 
-			 ps.executeUpdate();
-			 con.close();
+			ps.executeUpdate();
+			con.close();
+		} catch (Exception e) {
 		}
-		catch(Exception e) {}
 	}
-	
-	public void updateBook1(BookTO bt)
-	{
+
+	public void updateBook1(BookTO bt) {
 		try {
 
 			Connection con = DBConnection.createConnection();
-			PreparedStatement ps = con.prepareStatement("update book set Title=?,Author=?,Qty=?,Category=?,Image=?,Rackno=? where ISBN = ?");
+			PreparedStatement ps = con.prepareStatement(
+					"update book set Title=?,Author=?,Qty=?,Category=?,Image=?,Rackno=? where ISBN = ?");
 			ps.setString(1, bt.getTitle());
 			ps.setString(2, bt.getAuthor());
 			ps.setInt(3, bt.getQty());
-			ps.setString(4,bt.getCategory());
+			ps.setString(4, bt.getCategory());
 			ps.setNString(5, bt.getImage());
-			ps.setInt(6,bt.getRack());
-			ps.setString(7,bt.getISBN());
+			ps.setInt(6, bt.getRack());
+			ps.setString(7, bt.getISBN());
 
-			 ps.executeUpdate();
-			 con.close();
+			ps.executeUpdate();
+			con.close();
+		} catch (Exception e) {
 		}
-		catch(Exception e) {}
 	}
 
 	public BookTO Exists(String isbn) {
@@ -254,24 +255,21 @@ public class Bookdao extends BookdaoService {
 
 		}
 	}
-	
-	public void decrementcnt(BookTO bt)
-	{
+
+	public void decrementcnt(BookTO bt) {
 		try {
-            bt.setQty(bt.getQty()-1);
+			bt.setQty(bt.getQty() - 1);
 			Connection con = DBConnection.createConnection();
 
 			PreparedStatement ps = con.prepareStatement("update book set Qty=? where ISBN=?");
 
-			ps.setInt(1,bt.getQty());
-			ps.setString(2,bt.getISBN());
-     
+			ps.setInt(1, bt.getQty());
+			ps.setString(2, bt.getISBN());
+
 			int i = ps.executeUpdate();
 			con.close();
+		} catch (Exception e) {
+		}
 	}
-		catch(Exception e)
-		{
-		}
-		}
 
 }

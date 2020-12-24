@@ -26,18 +26,17 @@ public class ActionEditBook {
 }
 */
 package library.controller.action;
+
 import library.controller.Action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ActionEditBook implements Action {
-	 public String perform(HttpServletRequest request,
-	            HttpServletResponse response) {
-		
-		  String isbn = request.getParameter("isbn");
+	public String perform(HttpServletRequest request, HttpServletResponse response) {
 
-    
-	      	 request.getSession().setAttribute("book", BookBD.getBook(isbn));
-			 return "edit_book.jsp";
-}
+		String isbn = request.getParameter("isbn");
+
+		request.getSession().setAttribute("book", BookBD.getBook(isbn));
+		return "edit_book.jsp";
+	}
 }

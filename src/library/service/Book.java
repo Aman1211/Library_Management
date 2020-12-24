@@ -8,93 +8,84 @@ public class Book implements Cloneable {
 	private int Qty;
 	private String Image;
 	private int Rackno;
-	
+
 	public Book clone() {
-        Book book = null;
-        try {
-            book= (Book) super.clone();
-        }
-        catch(CloneNotSupportedException e) {}
-        return book;
-    }
-	public Book(String isbn,String title,String author,String category,int qty,String image,int rack)
-	{
-		ISBN=isbn;
-		Title=title;
-		Author=author;
-		Category=category;
-		Qty=qty;
-		Image=image;
-		Rackno=rack;
-		
+		Book book = null;
+		try {
+			book = (Book) super.clone();
+		} catch (CloneNotSupportedException e) {
+		}
+		return book;
 	}
-	public Book(){}
-	public void setISBN(String isbn)
-	{
-		ISBN=isbn;
+
+	public Book(String isbn, String title, String author, String category, int qty, String image, int rack) {
+		ISBN = isbn;
+		Title = title;
+		Author = author;
+		Category = category;
+		Qty = qty;
+		Image = image;
+		Rackno = rack;
+
 	}
-	
-	public String getISBN()
-	{
+
+	public Book() {
+	}
+
+	public void setISBN(String isbn) {
+		ISBN = isbn;
+	}
+
+	public String getISBN() {
 		return ISBN;
 	}
-	public void setTitle(String title)
-	{
-		Title=title;
+
+	public void setTitle(String title) {
+		Title = title;
 	}
-	
-	public String getTitle()
-	{
+
+	public String getTitle() {
 		return Title;
 	}
-	public void setAuthor(String author)
-	{
-		Author=author;
+
+	public void setAuthor(String author) {
+		Author = author;
 	}
-	
-	public String getAuthor()
-	{
+
+	public String getAuthor() {
 		return Author;
 	}
-	
-	public void setCategory(String cat)
-	{
-		Category=cat;
+
+	public void setCategory(String cat) {
+		Category = cat;
 	}
-	
-	public String getCategory()
-	{
+
+	public String getCategory() {
 		return Category;
 	}
-	
-	public void setQty(int qty)
-	{
-		  Qty=qty;
+
+	public void setQty(int qty) {
+		Qty = qty;
 	}
-	
-	public int getQty()
-	{
+
+	public int getQty() {
 		return Qty;
 	}
-	
-	public String getImage()
-	{
+
+	public String getImage() {
 		return Image;
 	}
-	
-	public void setImage(String image)
-	{
-		Image=image;
+
+	public void setImage(String image) {
+		Image = image;
 	}
-	
-	public int getRack()
-	{
+
+	public int getRack() {
 		return Rackno;
 	}
-	
-	public void setRack(int rack)
-	{
-		Rackno=rack;
+
+	public void setRack(int rack) {
+		Rackno = rack;
 	}
 
 }

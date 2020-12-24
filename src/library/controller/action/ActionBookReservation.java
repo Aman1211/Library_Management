@@ -19,8 +19,8 @@ public class ActionBookReservation implements Action {
 		 bb=ReserveBD.getReservations(username);
 	
 		 ArrayList<BookBean> aa=new ArrayList<BookBean>();
-			for(ReserveBean b:bb){  
-			    aa.add(BookBD.getBook(b.getISBN()));
+			for (ReserveBean b : bb) {
+				aa.add(BookBD.getBook(b.getISBN()));
 			}
 		 request.getSession().setAttribute("Itemlist", aa);		 
 		

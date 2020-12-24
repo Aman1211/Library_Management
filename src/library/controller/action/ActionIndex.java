@@ -10,18 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import library.model.BookBean;
 
+class ActionIndex implements Action {
+	public String perform(HttpServletRequest request, HttpServletResponse response) {
+		ArrayList<BookBean> bb = new ArrayList<>();
+		bb = BookBD.fetchAll();
+		request.getSession().setAttribute("Itemlist", bb);
+		return "index.jsp";
 
-class ActionIndex implements Action
-{
-	 public String perform(HttpServletRequest request,
-	            HttpServletResponse response)
-	 {
-		 ArrayList<BookBean>bb=new ArrayList<>();
-		 bb=BookBD.fetchAll();
-		 request.getSession().setAttribute("Itemlist", bb);		 
-		 return "index.jsp";
-		  
-} 
+	}
 }
 /**
  * implementation class ActionController

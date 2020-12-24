@@ -5,54 +5,54 @@ public class ReserveBean {
 	private int ReserveId;
 	private String Username;
 	private String ISBN;
+	private int isnotify;
 
+	public ReserveBean(String username, String isbn) {
 
-	public ReserveBean(String username,String isbn)
-	{
-
-		Username=username;
-		ISBN=isbn;
+		Username = username;
+		ISBN = isbn;
 	}
-	public ReserveBean(int id,String username,String isbn)
-	{
-		ReserveId=id;
-		Username=username;
-		ISBN=isbn;	}
-	
-	public ReserveBean()
-	{
-		
+
+	public ReserveBean(int id, String username, String isbn) {
+		ReserveId = id;
+		Username = username;
+		ISBN = isbn;
 	}
-	
-	public int getId()
-	{
+
+	public ReserveBean() {
+
+	}
+
+	public int getId() {
 		return ReserveId;
 	}
-	
-	public void setId(int id)
-	{
-		ReserveId=id;
+
+	public void setId(int id) {
+		ReserveId = id;
 	}
-	public void setISBN(String isbn)
-	{
-		ISBN=isbn;
+
+	public void setISBN(String isbn) {
+		ISBN = isbn;
 	}
-	
-	public String getISBN()
-	{
+
+	public String getISBN() {
 		return ISBN;
 	}
-	
-	public String getUsername()
-	{
+
+	public String getUsername() {
 		return Username;
 	}
-	
-	public void setUsername(String uname)
-	{
-		Username=uname;
+
+	public void setUsername(String uname) {
+		Username = uname;
 	}
-	
-	
+
+	public int getnotify() {
+		return isnotify;
+	}
+
+	public void setnotify(int status) {
+		isnotify = status;
+	}
 
 }
