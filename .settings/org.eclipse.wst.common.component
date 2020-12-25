@@ -6,7 +6,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
                 
         <property name="context-root" value="Librart_Management4"/>
-                
         <property name="java-output-path" value="/Librart_Management4/bin"/>
             
     </wb-module>

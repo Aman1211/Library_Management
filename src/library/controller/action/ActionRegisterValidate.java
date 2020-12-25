@@ -20,14 +20,13 @@ public class ActionRegisterValidate implements Action {
 		String name = request.getParameter("name");
 		String con = request.getParameter("contact");
 		String type = request.getParameter("type");
-		System.out.print(username + password + name + con + type);
 		if (username.isEmpty() || password.isEmpty() || name.isEmpty() || con.isEmpty() || type.isEmpty()) {
 
 			err.add("Please Enter all the required fields");
 			request.setAttribute("errMessage", err); // If authenticateUser() function returnsother than SUCCESS string
 														// it will be sent to Login page again. Here the error message
 														// returned from function has been stored in a errMessage key.
-			request.getSession().setAttribute("user", null);
+			
 			return "register.jsp";
 
 		}
@@ -35,13 +34,13 @@ public class ActionRegisterValidate implements Action {
 		if (password.length() < 8 || password.length() > 20) {
 			err.add("Password length must be between 8 and 20");
 			request.setAttribute("errMessage", err);
-			request.getSession().setAttribute("user", null);
+			
 			view = "register.jsp";
 		}
 		if (con.length() > 10 || con.length() < 10) {
 			err.add("Invalid Contact number");
 			request.setAttribute("errMessage", err);
-			request.getSession().setAttribute("user", null);
+			
 			view = "register.jsp";
 		}
 		pattern = Pattern.compile(
@@ -67,7 +66,7 @@ public class ActionRegisterValidate implements Action {
 		}
 		UserBean ub = new UserBean(name, username, password, contact, type, "Member", 0);
 		boolean res = UserBD.addUser(ub);
-		System.out.print(res + "aman");
+		
 		if (res == false) {
 			err.clear();
 			err.add("User Already Exists!");
