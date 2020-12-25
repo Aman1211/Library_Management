@@ -79,12 +79,13 @@ public class UserdaoImpl extends Userdao {
 			System.out.println("user name beforr:::" + uname + "user name after" + ut.getUsername());
 			Connection con = DBConnection.createConnection();
 			PreparedStatement ps = con
-					.prepareStatement("update login set Username=?,Name=?,Contact=?,Type=? where Username = ?");
+					.prepareStatement("update login set Username=?,Name=?,Contact=?,Type=?,BookCnt=? where Username = ?");
 			ps.setString(1, ut.getUsername());
 			ps.setString(2, ut.getName());
 			ps.setLong(3, ut.getContact());
 			ps.setString(4, ut.getType());
-			ps.setString(5, uname);
+			ps.setInt(5, ut.getCnt());
+			ps.setString(6, uname);
 
 			ps.executeUpdate();
 			con.close();
