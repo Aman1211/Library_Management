@@ -11,7 +11,7 @@ public abstract class Bookdao {
 
 	public abstract ArrayList<BookTO> top3mostissuedbook(String date);
 
-	public abstract void deleteBook(String isbn);
+	public abstract int deleteBook(String isbn);
 
 	public abstract BookTO getBook(String isbn);
 

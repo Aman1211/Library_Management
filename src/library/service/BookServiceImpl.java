@@ -75,9 +75,10 @@ public class BookServiceImpl extends BookService {
 		return true;
 	}
 
-	public void deleteBook(String isbn) {
+	public int deleteBook(String isbn) {
 
-		bookdo.deleteBook(isbn);
+		int status=bookdo.deleteBook(isbn);
+		return status;
 	}
 
 	public BookTO getBook(String isbn) {

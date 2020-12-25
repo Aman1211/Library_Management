@@ -15,7 +15,7 @@ public abstract class BookService {
 
 	public abstract ArrayList<BookTO> fetchAll();
 
-	public abstract void deleteBook(String isbn);
+	public abstract int deleteBook(String isbn);
 
 	public abstract BookTO getBook(String isbn);
 

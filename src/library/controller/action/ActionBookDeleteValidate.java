@@ -17,8 +17,14 @@ public class ActionBookDeleteValidate implements Action {
 		int a = JOptionPane.showConfirmDialog(f, "Are you sure?");
 		if (a == JOptionPane.YES_OPTION) {
 			f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			BookBD.deleteBook(request.getParameter("isbn"));
+			int status=BookBD.deleteBook(request.getParameter("isbn"));
+			if(status==1)
+			{
+			System.out.println(status);
 			JOptionPane.showMessageDialog(f, "Deleted Successfully");
+			}
+			else
+				JOptionPane.showMessageDialog(f, "Cannot delete this book because of dependency");
 		}
 		ArrayList<BookBean> bb = new ArrayList<>();
 		bb = BookBD.fetchAll();

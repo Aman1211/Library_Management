@@ -118,22 +118,28 @@ public class BookdaoImpl extends Bookdao {
 		return bt;
 	}
 
-	public void deleteBook(String isbn) {
-		System.out.println("step4");
+	public int deleteBook(String isbn) {
+		int cnt=0;
 		try {
 			Connection con = DBConnection.createConnection();
 
 			PreparedStatement ps = con.prepareStatement("delete from book where ISBN = ?");
 			ps.setString(1, isbn);
 
-			int i = ps.executeUpdate();
+			 
+			 cnt=ps.executeUpdate();
 			// boolean i=ps.execute();
-			System.out.println(i + " book deleted");
-
+			
+			
+			
 			con.close();
 		} catch (Exception e) {
 
 		}
+		if(cnt==0)
+		return 0;
+		else
+		return 1;
 	}
 
 	public BookTO getBook(String isbn) {

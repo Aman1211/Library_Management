@@ -45,9 +45,9 @@ public class BookBD {
 		return books;
 	}
 
-	static void deleteBook(String isbn) {
+	static int deleteBook(String isbn) {
 
-		service.deleteBook(isbn);
+		return service.deleteBook(isbn);
 
 	}
 
