@@ -248,5 +248,24 @@ public class UserdaoImpl extends Userdao {
 		} catch (Exception e) {
 		}
 	}
+	
+	public void removeuser(String uname)
+	{
+		try {
+			Connection con = DBConnection.createConnection();
+
+			PreparedStatement ps = con.prepareStatement("delete from login where Username=?");
+			
+			ps.setString(1, uname);
+
+			int i = ps.executeUpdate();
+			con.close();
+
+		}
+		catch(Exception e)
+		{
+			
+		}
+	}
 
 }

@@ -22,6 +22,8 @@ public abstract class UserService {
 	public abstract ArrayList<UserTO> fetchAll();
 
 	public abstract void decrement(String uname);
+	
+	public abstract void remove(String uname);
 
 	public static UserService getInstance() {
 		return new UserServiceImpl();

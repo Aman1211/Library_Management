@@ -38,6 +38,11 @@ public class UserServiceImpl extends UserService {
 	public void editProfile(UserTO ut, String uname) {
 		dao.updateProfile(ut, uname);
 	}
+	
+	public void remove(String uname)
+	{
+		 dao.removeuser(uname);
+	}
 
 	public boolean addUser(UserTO user) {
 		String username = user.getUsername();

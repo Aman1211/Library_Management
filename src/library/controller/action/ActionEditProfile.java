@@ -9,7 +9,7 @@ public class ActionEditProfile implements Action {
 	public String perform(HttpServletRequest request, HttpServletResponse response) {
 
 		String username = request.getParameter("username");
-		System.out.println("hiii in Actioneditprofile");
+		
 
 		request.getSession().setAttribute("user", UserBD.getUser(username));
 		return "edit_profile.jsp";

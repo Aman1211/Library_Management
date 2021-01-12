@@ -90,7 +90,7 @@ select {
 		String isbn = b.getISBN();
 	 %>
   <div class="col-sm-3">
-   <div class="card" style="width: 24rem;">
+   <div class="card" style="width: 18rem;">
   <img src=<%= b.getImage() %> height="320px" class="card-img-top" alt="...">
   
  

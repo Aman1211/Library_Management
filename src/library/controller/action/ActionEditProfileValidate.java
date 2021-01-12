@@ -54,7 +54,6 @@ public class ActionEditProfileValidate implements Action {
 
 		long con = Long.parseLong(contact);
 		String pass = "";
-		System.out.println("edit validate");
 		UserBean ub1=UserBD.getUser(uname);
 		int qty=ub1.getCnt();
 		UserBean ub = new UserBean(name, username, pass, con, type, "", qty);

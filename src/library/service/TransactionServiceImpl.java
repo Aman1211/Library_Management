@@ -137,8 +137,8 @@ public class TransactionServiceImpl extends TransactionService {
 		long duration = tdate.getTime() - tt.getIssuedate().getTime();
 		long diffInDays = TimeUnit.MILLISECONDS.toDays(duration);
 		if (ut.getType().equalsIgnoreCase("Student") && diffInDays <= 7) {
-			System.out.println(diffInDays);
-//			 tdao.markFine(tt.getTransactionId(), 0);
+			
+		 tdao.markFine(tt.getTransactionId(), 0);
 			return 0;
 		} else if (ut.getType().equalsIgnoreCase("Student") && diffInDays > 7) {
 			long days = diffInDays - 7;
@@ -183,7 +183,7 @@ public class TransactionServiceImpl extends TransactionService {
 			message.setFrom(new InternetAddress("lmsecdss@gmail.com"));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(uname));
 			message.setSubject("Book-Returned");
-			message.setContent("<b> Hello + " + u.getName()
+			message.setContent("<b> Hello " + u.getName()
 					+ ",</b><br><h3> Thank you for returning the following book </h3><br>" + "ISBN:-" + b.getISBN()
 					+ "<br>" + "Book Title:-" + b.getTitle() + "<br>" + "Book Author:-" + b.getAuthor() + "<br>"
 					+ "Book Category:-" + b.getCategory() + "<br><br> Regards,<br>Library Admin.", "text/html");

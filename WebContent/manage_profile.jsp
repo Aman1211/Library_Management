@@ -16,6 +16,7 @@
 				<th>Contact</th>
 				<th>Type</th>
 				<th>Edit</th>
+				<th>Remove</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,7 +39,9 @@
 				<td><%=b.getType() %></td>
 				<td><a class="btn btn-primary"
 					href="<%= application.getContextPath() %>/Controller?action=editprofile&username=<%= Username %>">Edit</a></td>
-
+           <td><a class="btn btn-primary"
+					href="<%= application.getContextPath() %>/Controller?action=removeprofile&username=<%= Username %>">Remove</a></td>
+           
 			</tr>
 			<% }}} %>
 		</tbody>

@@ -55,7 +55,7 @@
 </head>
 
 <%
-	if (session.getAttribute("user") == null) {
+	if (session.getAttribute("user") == null || session.getAttribute("role").equals("Member")) {
 	response.sendRedirect("Controller");
 }
 %>

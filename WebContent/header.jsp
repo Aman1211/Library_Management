@@ -5,6 +5,7 @@
 			height="50" width="100"
 			style="margin-right: 5px; border-radius: 10px" alt="">
 		</a>
+		
 		<%
 			if (session.getAttribute("role") == null || session.getAttribute("role").equals("Member")) {
 		%>

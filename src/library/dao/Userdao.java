@@ -22,4 +22,5 @@ public abstract class Userdao {
 
 	public abstract void decrementcnt(String uname);
 
+	public abstract void removeuser(String uname);
 }

@@ -22,6 +22,11 @@ public class UserBD {
 	static void decrement(String uname) {
 		service.decrement(uname);
 	}
+	
+	static void remove(String uname)
+	{
+		 service.remove(uname);
+	}
 
 	static UserBean getUser(String uname) {
 		return TO2Bean(service.getUser(uname));

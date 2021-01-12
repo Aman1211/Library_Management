@@ -15,11 +15,7 @@ public class ActionMarkReturn implements Action {
 		int id = Integer.parseInt(request.getParameter("tid"));
 
 		TransactionBean tb = TransactionBD.getTransaction(id);
-		UserBean ub=UserBD.getUser(tb.getUsername());
-		int cnt1=ub.getCnt();
-		cnt1=cnt1-1;
-		ub.setCnt(cnt1);
-		UserBD.editProfile(ub,ub.getUsername());
+		
 		BookBean bb = BookBD.getBook(tb.getISBN());
 		int cnt = bb.getQty();
 		cnt = cnt + 1;
